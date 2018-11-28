@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="feedback_type">
+        <item>Missing Place</item>
+        <item>Modify Existing Place</item>
+        <item>App Feedback</item>
+    </string-array>
+
+    <array name="color_bottom_nav">
+        <item>@color/colorPrimary</item>
+        <item>@color/colorSecondary</item>
+        <item>@color/text_color_secondary</item>
+    </array>
+</resources>

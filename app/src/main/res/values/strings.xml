@@ -1,0 +1,308 @@
+<resources>
+    <string name="app_name">WhichPay</string>
+    <string name="null_name"/>
+
+    <string name="title_home_main">Explore</string>
+    <string name="title_search_main">Search</string>
+    <string name="title_settings_main">Settings</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--==============================================================================-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="app_bar_search">app_bar_search</string>
+    <string name="search_location_hint">Where to?</string>
+    <string name="app_bar_showMap">show_map</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!--main_activity-->
+    <string name="main_activity_updating_database">Updating database...</string>
+    <string name="message_turn_on_gps_network">Please turn on GPS or Network</string>
+
+    <!--activity_search-->
+    <string name="activity_search_noResultsText">No Results</string>
+    <string name="activity_search_loadingText">Loading Data...</string>
+    <string name="activity_search_bottomSheetTitle">Pay Methods</string>
+    <string name="activity_search_cancelButton">Cancel</string>
+    <string name="activity_search_doneButton">Done</string>
+    <string name="activity_search_mapViewButton">Map View</string>
+    <string name="activity_search_filterButton">Filter</string>
+    <string name="activity_search_filterButtonWarning">Try input something</string>
+
+    <!--app_bar_main-->
+    <string name="app_bar_title">WhichPay</string>
+
+    <!--card_layout_paylocations-->
+    <string name="paylocation_list_item_name">Item Name</string>
+    <string name="paylocation_list_item_type">Item Type</string>
+    <string name="paylocation_list_item_address">Item Address</string>
+    <string name="paylocation_list_item_distance">Dis. KM</string>
+    <string name="paylocation_list_item_branchName">Branch Name</string>
+
+    <!--content_main-->
+    <string name="content_main_recommendTag">Recommended</string>
+    <string name="content_main_nearbyLocationsTag">Near You</string>
+    <string name="recom_button1">Line Pay x 台北喜來登大飯店</string>
+    <string name="recom_button2">\n</string>
+    <string name="recom_button3">國泰世華\n影城優惠</string>
+
+    <!--PL_RecuclerViewAdapter-->
+    <string name="no_result_name">No results. Please try another keyword</string>
+    <string name="no_result_type">Could not find results</string>
+    <string name="no_result_address">Please try another keyword</string>
+
+    <!--infoWindow_tags-->
+    <string name="iw_name_tag">Name:</string>
+    <string name="iw_type_tag">Type:</string>
+    <string name="iw_address_tag">Address:</string>
+    <string name="iw_description_tag">Description:</string>
+    <string name="iw_youCanPayWith_tag">You Can Pay with:</string>
+    <string name="iw_unknown_name">Unknown Location</string>
+    <string name="iw_unknown_branch"> </string>
+    <string name="iw_unknown_location_type">Unknown Location Type</string>
+    <string name="iw_unknown_address">Unknown Address</string>
+    <string name="iw_distace">Dis. KM</string>
+    <string name="iw_distanceFromTag">Distance from you:</string>
+
+    <string name="location_detail_name">detail Name</string>
+    <string name="location_detail_type">detail Type</string>
+    <string name="location_detail_address">detail Address</string>
+    <string name="location_detail_PayWithTag">You can pay with:</string>
+    <string name="location_detail_description">Description</string>
+    <string name="location_detail_branch">Branch</string>
+
+    <!--nav_header_main-->
+    <string name="nav_hearder_title">WhichPay</string>
+    <string name="nav_header_description">Search for your favorite places and pay the right way</string>
+
+    <!--Shared preferences-->
+    <string name="preference_file_key">com.justinlee.whichpay.NAV_STATUS_PREF_FILE_KEY</string>
+
+
+    <!--JAVA-->
+
+    <!--maps_activity-->
+    <string name="current_location_not_found">Cannot find current location</string>
+
+    <!--PayLocationDetail-->
+    <string name="paylocationDetail_invalid_link_tag">Invalid Link</string>
+
+    <!--activity_settings-->
+    <string name="settings_app_bar_title">Settings</string>
+    <string name="settings_switch_notifications">Notifications</string>
+
+    <!--activity_main_drawer-->
+    <string name="drawer_button_settings">Settings</string>
+    <string name="drawer_button_about">About</string>
+    <string name="drawer_button_policyPrivacy">Policy &amp; Privacy</string>
+    <string name="drawer_button_feedback">Feedback</string>
+    <string name="nav_filtersetup_title"> </string>
+    <string name="nav_applepay_switch_title">Apple Pay</string>
+    <string name="nav_googlepay_switch_title">Google Pay</string>
+    <string name="nav_linepay_switch_title">Line Pay</string>
+    <string name="nav_jkopay_switch_title">街口支付</string>
+    <string name="nav_samsungpay_switch_title">Samsung Pay</string>
+
+
+    <!--activity_main_nearbyLocationsButtons-->
+    <string name="coffeeDrinks_button_activity_main">Coffee &amp; Drinks</string>
+    <string name="dining_button_activity_main">Dining</string>
+    <string name="shopping_button_activity_main">Shopping</string>
+    <string name="markets_button_activity_main">Markets</string>
+    <string name="beauty_button_activity_main">Beauty &amp; Pharma</string>
+    <string name="travelEntertain_button_activity_main">Travel &amp; Entertainment</string>
+
+    <!--about_information-->
+    <string name="about_information">
+    搜尋最適合您的行動支付方式，然後支付!
+
+    </string>
+
+    <!--policy&privacy_information-->
+    <string name="policyPrivacy_information">
+
+        使用條款
+
+        \n\n
+        一、服務條款目的 \n
+        為了保護本服務使用者與服務提供者的權益，並構成本服務與使用者間的約定事項，本服務均依據本服務條款所提供，任何使用者使用本服務時，請先詳細閱讀本服務條款及其他相關條款，並請確實遵守後，方使用本服務；若您無法遵守本服務條款內容、或對於本服務條款內容全部或部分不同意時，請立即停止使用本服務，本服務一經使用即表示您已知悉，並完全同意本服務條款的所有約定。\n\n
+        若您是法律上的無行為能力人或限制行為能力人(如未滿二十歲未成年人)，則您使用本服務時，請將本服務條款交由您的法定代理人(如父母或監護人)閱讀，並得到其同意，您才可使用本網站所提供的服務。當您開始使用本服務所提供的服務時，則表示您及您的法定代理人(如父母或監護人)均已經閱讀、了解並同意本服務條款。\n\n
+        除法令另有規定外，本服務條款之效力與書面文件相同。本服務提供者保留隨時修改本服務之內容及範圍，並保留修改本服務條款的權利，修改後的服務條款請您同意隨時自行主動閱讀，若您於發布生效日後繼續使用本服務者，視為您已同意該等修改，若您不同意該等修改的全部或部分，請您停止使用本服務。本服務條款所訂的全部或部份無效時，不影響其他有效條款的效力。\n
+
+        \n
+        二、關於本服務提供業者廣告\n
+        (一) 服務提供業者銷售商品或服務的銷售的內容資料均為服務提供業者所提供、或本服務依實際所取得之資料進行更新，如所呈現之資訊與實際情況有不符之情形，請洽資訊提供者辦理。\n
+        (二) 所有頁面的相關所有權及廣告版面經營權，包含但不限於任何本服務認為適當之位置或方式所出現的廣告、跳躍式廣告或其他形式廣告與訊息等，均仍歸本服務所有。\n
+
+        \n
+        三、智慧財產權\n
+        (一) 本APP所包括之所有圖片、內文、程式、設計、架構、商標，均受智慧財產權、商標及相關法律保護，在未取得本服務擁有者書面同意前，所有使用者不得擅自使用、重製、複製、抄襲、授權或轉授權部分或全部本APP所提供的服務。\n
+        (二) 本APP因為所提供之服務需要，可能引用受智慧財產權保護之第三方資料，如包含但不限於圖片、文字等，若對於本APP所引用之內容有不適當之情形，請立即e-mail 至 whichpay@gmail.com，本服務將會儘速移除相關內容。\n
+        (三) 本服務持有人相當注重著作權、商標、專利等相關法律，對於本服務或合作服務提供業者所提供的資料，若您認為本APP或合作服務提供業者有圖片、內文、影片、商標、專利等侵權情形，請 e-mail 至 whichpay@gmail.com聯繫，本服務將會儘速移除相關內容。關於非可歸責本服務侵權行為，本服務將主動通知服務提供業者處理，本服務不介入權利人與服務提供業者侵權紛爭。\n
+
+        \n
+        四、免責聲明\n
+        (一) 對於本服務所提供的各項服務，均謹依該服務當時的資訊、功能及現況提供使用者相關服務；對於使用者特定要求或需求，包括但不限於速度、安全性、可靠性、完整性、正確性及不會斷線和出錯等，本服務不負任何形式或內容作擔保或保證責任。\n
+        (二) 若您對於本服務或其內容有任何不滿意，請您停止使用本服務。\n
+        (三) 除法律另有規定外，本服務對於任何間接性、持續性、衍生性或懲罰性違約金之賠害賠償，包括所失利益，不負任何責任。\n
+        (四) 本服務僅提供使用者支付相關資訊，不會要求使用者以任何形式進行付款，使用者於取得本服務資訊後，於商家所進行之付款，不在本服務範圍內，相關行為所造成之利益損失，您同意本服務可不負任何責任。\n
+        (五) 本平台服務系統或功能例行性的維護或變動，可能會發生服務暫停或中斷，本服務將於該暫停或中斷前以公告或其他適當方式告知，您同意本服務不須因此負損害賠償責任。\n
+        (六) 除服務條款另有約定外，在下列情形，本服務亦將暫停或中斷本平台服務的全部或一部份，且對使用者任何直接或間接的損害，均不負任何責任：\n
+        \t•經判斷任何服務內容有侵害使用者的可能或風險時\n
+        \t•經判斷服務提供業者商品或服務易造成消費者爭議時\n
+        \t•對本服務相關軟硬體設備進行搬遷、更換、升級、保養或維修時\n
+        \t•天災或其他不可抗力所造成的服務停止或中斷\n
+        \t•任何不可歸責於本服務而致的服務停止或中斷。\n
+
+        \n
+        五、準據法及管轄權\n
+        (一) 本服務條款的解釋、補充及適用均以中華民國法令為準據法。\n
+        (二) 因本服務條款所發生的訴訟，以臺灣臺北地方法院為第一審管轄法院。\n
+
+        \n\n
+        隱私權政策 Privacy Policy
+
+        \n\n
+        一、本服務非常重視您個人資訊的保護，為了提供您安心消費的環境，本服務對於客戶資料的蒐集、處理及利用均遵守中華民國政府的「個人資料保護法」及相關法令規範，以維護您個人資料及隱私權。
+        \n\n
+        二、本服務會盡力保護所有使用者的個人資料與隱私，您所留的資料，本服務依據商品或服務的需要，評估必要性提供給合作服務提供業者，您須知悉本服務蒐集您的資料，是為了協助服務提供業者提供您所需的商品或服務的目的。除了可能涉及違法、侵權、違反服務條款或經您同意以外，本服務不會任意將個人資料內容交予無須知悉的人或單位。如您遇到有個人資料洩漏狀況，請您備妥證明，盡快email至whichpay@gmail.com告知本服務客服中心處理。
+        \n\n
+        三、當您在使用本APP時，我們會蒐集您所留下的姓名、電子郵件手機號碼、位置資訊、商品或發票寄送地址等個人資料等資料。您安裝本服務相關設備及軟體、及其他因您參加活動使用本服務而主動提供之資料，以上是為了及時提供您客製化服務、商品配送、使用者管理與客服付款服務及其相關爭議處理、各項優惠措施、廣告、行銷、市場調查、避免詐騙、防止惡意程式及其他合於營業登記項目業務的經營需要。所有使用者資料將在本服務妥當的保存，並絶不將您的資料揭露於他人。
+        \n\n
+        四、如因服務提供業者將您經由購買商品或服務所提供的個人資料運用在行銷、廣告，若造成您的困擾，請主動通知服務提供業者刪除您的資料，或通知本服務協助轉告，請相信本服務對於個人資料的重視，服務提供業者的行為非本服務所能掌控。
+        \n\n
+        五、您同意在因處理消費者爭議、因訴訟(或法令、依司法行政機關的命令)、執行本服務條款的需要、為維護本網站服務的正常運作與安全、或為保護其他使用者或其他第三人的合法權益，本服務可查看或提供您的個人資料給法院、主管機關、或提出適當證明主張其權利受侵害的第三人。
+
+    </string>
+
+    <!--EventPageActivity-->
+    <string name="title_activity_event_page">EventPageActivity</string>
+
+    <string name="imageButton1_title">Line Pay x 台北喜來登大飯店</string>
+    <string name="imageButton1_eventTitle">LINE Pay用戶於台北喜來登大飯店使用「我的條碼」消費，樂享優惠 \n活動時間: 2018/3/22(四)-2018/6/30(六)</string>
+    <string name="imageButton1_description">
+        綁定任一發卡銀行卡片，當月累積消費滿額，享LINE Points點數回饋！(每位用戶每月限回饋一次，每月最高可得200點)
+        \n\n
+        ◎注意事項:
+        \n
+        •滿NTD3,000，享LINE Points 100點回饋
+        \n
+        •滿NTD5,000，享LINE Points 200點回饋
+        \n
+        •每月定義為：2018/3/22~2018/3/31為第一個月，2018/4/1~2018/4/30為第二個月，2018/5/1~2018/5/31為第三個月，2018/6/1~2018/6/30為第四個月
+        \n
+        •當月消費者將於次月20號起陸續收到點數
+        \n
+        •綁定中國信託LINE Pay信用卡或簽帳金融卡，還可享原中信LINE Pay卡一般消費LINE Points 2%點數回饋
+        \n
+        •消費金額可含LINE Points點數折抵，惟若綁定中國信託LINE Pay卡，折抵部份將不計入2%點數回饋
+    </string>
+    <string name="imageButton1_tag">喜来登</string>
+
+    <string name="imageButton2_title">第一銀行回饋金</string>
+    <string name="imageButton2_eventTitle">第一銀行10% 刷卡金回饋\n活動時間: 即日起～2018/10/30</string>
+    <string name="imageButton2_description">
+        10／30 前，每筆消費享 10% 刷卡金回饋，每戶每月回饋上限 50 元，活動期間每戶回饋上限 300 元。\n\n
+        精選店家: 王品牛排
+    </string>
+    <string name="imageButton2_tag">王品</string>
+
+    <string name="imageButton3_ttile">國泰世華影城優惠</string>
+    <string name="imageButton3_eventTitle">國泰世華卡 影城低至6折\n活動時間: 2018年</string>
+    <string name="imageButton3_description">
+        持國泰世華 PLAY(COMBO)/KOKO白金卡、NFC行動信用卡，至國賓影城，憑一個月內同卡號之單筆1,000元以上實體刷卡簽單，週一至週四享6折；週五至週日及國定假日享63折。
+(3D片及網路購票、行動支付等不適用)
+    </string>
+    <string name="imageButton3_tag">國賓</string>
+
+    <string name="content_event_page_buttonTitle">Search Near You</string>
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
+
+    <!--ViewPagerActivity-->
+    <string name="content_view_pager_buttonTitle">Search</string>
+
+    <string name="title_viewpager2"><![CDATA[春 & 咖啡 \nfeat. Apple Pay]]></string>
+
+    <string name="pager2_title1">松果院子</string>
+    <string name="pager2_description1">位於富錦街的質感文青咖啡廳，店內處處帶有春天的花園氣息，適合春天的下午時光! \n\n地址: 105台北市松山區富錦街449號 \n電話: 02 2765 0386 \n\n網路評價: \n質感文青咖啡店  \n美味程度讓人印象深刻，是絕對會再回鍋的餐廳!</string>
+
+    <string name="pager2_title2">Machi Doggie Coffee</string>
+    <string name="pager2_description2">春天想帶著汪星人一起悠閒一下，卻永遠只能到公園嗎? 快到Machi Doggie Coffee與寵物一起被萌翻吧! \n\n地址: 108台北市萬華區中華路一段162-2號 \n電話：02 2311 2227 \n\n網路評價: \n萌度破表的咖啡廳 \n招牌又限量棉花糖拿鐵~</string>
+
+    <!--SearchNearbyLocationActivity-->
+    <string name="dining_title_nearbyLocationActivity">Dining</string>
+    <string name="cafe_title_nearbyLocationActivity">Cafe</string>
+    <string name="shopping_title_nearbyLocationActivity">Shopping</string>
+    <string name="market_title_nearbyLocationActivity">Markets</string>
+    <string name="beauty_title_nearbyLocationActivity">Beauty</string>
+    <string name="travelEntertain_title_nearbyLocationActivity">Travel &amp; Entertainments</string>
+
+    <!--InformationActivity-->
+    <string name="versionNumber_whichpay">Ver 1.2.13</string>
+
+    <!--MapsActivity-->
+    <string name="placeName_nodata_MapsActivity">No data</string>
+    <string name="internetaccess_maps_activity">Please turn on internet access</string>
+
+
+    <!--activity_maps-->
+    <string name="search_button_activity_maps">Search this area</string>
+
+    <!--activity_feedback-->
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="feedback_type_text_activity_feedback">Feedback Type</string>
+    <string name="description_text_activity_feedback">Description</string>
+    <string name="submit_button_text">Submit</string>
+
+    <!--feedback_activity-->
+    <string name="no_description_hint_feedback_activity">Please input your feedback</string>
+    <string name="not_enough_description_hint_feedback_activity">Please describe more about your feedback</string>
+    <string name="feedback_success_in_main_called_from_feedback_activity">Thank you for your feedback!</string>
+
+    <!--PL_Manager-->
+    <string name="turn_on_locationservices_toast">Please allow on Location Services</string>
+    <string name="title_location_service_dialog">Need Location Permissions</string>
+    <string name="message_location_service_dialog">Please allow Location Services for complete service of this application</string>
+    <string name="cannot_find_current_location_message">Cannot find current location，please turn on GPS or network</string>
+
+    <!--activity_search_nearby_location-->
+    <string name="title_applepay">Apple Pay</string>
+    <string name="title_googlepay">Google Pay</string>
+    <string name="title_samsungpay">Samsung Pay</string>
+    <string name="title_linepay">Line Pay</string>
+    <string name="title_jkopay">JKO Pay</string>
+
+
+
+</resources>
