@@ -1,4 +1,4 @@
-package com.whichpay.whichpay.main.base;
+package com.whichpay.whichpay.activities.base;
 
 public interface BasePresenter {
     void start();

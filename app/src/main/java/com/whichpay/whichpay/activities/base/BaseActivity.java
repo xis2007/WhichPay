@@ -1,14 +1,10 @@
-package com.whichpay.whichpay.main.base;
+package com.whichpay.whichpay.activities.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.whichpay.whichpay.R;
-import com.whichpay.whichpay.contants.Constants;
 
 /**
  * Created by Justin on 11/25/2017.
@@ -16,9 +12,7 @@ import com.whichpay.whichpay.contants.Constants;
  */
 
 public class BaseActivity extends AppCompatActivity {
-    private static final String TAG = "checkkkkk";
 
-    AHBottomNavigation mBottomNavigation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +21,7 @@ public class BaseActivity extends AppCompatActivity {
 
 //        setStatusBar();
 //        setToolBarHeight();
-        initViews();
+
     }
 
 //    private void setStatusBar() {
@@ -64,42 +58,7 @@ public class BaseActivity extends AppCompatActivity {
 //        return result;
 //    }
 
-    private void initViews() {
-        initBottomNavigation();
-    }
 
-    private void initBottomNavigation() {
-        mBottomNavigation = findViewById(R.id.bottom_navigation);
-        int[] tabColors = getApplicationContext().getResources().getIntArray(R.array.color_bottom_nav);
-        AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.bottom_navigation_menu_main);
-        navigationAdapter.setupWithBottomNavigation(mBottomNavigation, tabColors);
-
-        mBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
-        mBottomNavigation.setAccentColor(getResources().getColor(R.color.colorPrimary));
-        mBottomNavigation.setInactiveColor(getResources().getColor(R.color.grey));
-
-        mBottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
-            @Override
-            public boolean onTabSelected(int position, boolean wasSelected) {
-                Log.d(TAG, "onTabSelected: position is: " + position);
-                switch (position) {
-                    case Constants.BottomNavPosition.POSITION_HOME:
-
-                        break;
-
-                    case Constants.BottomNavPosition.POSITION_SEARCH:
-
-                        break;
-
-                    case Constants.BottomNavPosition.POSITION_SETTINGS:
-                        
-                        break;
-
-                }
-                return true;
-            }
-        });
-    }
 
 
 
