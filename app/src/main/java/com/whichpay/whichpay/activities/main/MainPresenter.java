@@ -5,8 +5,8 @@ import android.app.FragmentTransaction;
 
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.contants.Constants;
-import com.whichpay.whichpay.fragments.home.HomeFragment;
-import com.whichpay.whichpay.fragments.home.HomePresenter;
+import com.whichpay.whichpay.fragments.explore.ExploreFragment;
+import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
 import com.whichpay.whichpay.fragments.search.SearchingFragment;
 import com.whichpay.whichpay.fragments.search.SearchingPresenter;
 import com.whichpay.whichpay.fragments.settings.SettingsFragment;
@@ -19,12 +19,12 @@ public class MainPresenter implements MainContract.Presenter {
     private FragmentManager mFragmentManager;
 
     // fragments
-    private HomeFragment mHomeFragment;
+    private ExploreFragment mExploreFragment;
     private SearchingFragment mSearchingFragment;
     private SettingsFragment mSettingsFragment;
 
     // presenters
-    private HomePresenter mHomePresenter;
+    private ExplorePresenter mExplorePresenter;
     private SearchingPresenter mSearchingPresenter;
     private SettingsPresenter mSettingsPresenter;
 
@@ -34,29 +34,29 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void transToHomePage() {
+    public void transToExplorePage() {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
 
-        if (mHomeFragment == null) mHomeFragment = HomeFragment.newInstance();
+        if (mExploreFragment == null) mExploreFragment = ExploreFragment.newInstance();
 
         if (mSearchingFragment != null) transaction.hide(mSearchingFragment);
         if (mSettingsFragment != null) transaction.hide(mSettingsFragment);
 
-        if (!mHomeFragment.isAdded()) {
-            transaction.add(R.id.container_main, mHomeFragment, Constants.FragmentFlags.FLAG_HOME);
+        if (!mExploreFragment.isAdded()) {
+            transaction.add(R.id.container_main, mExploreFragment, Constants.FragmentFlags.FLAG_EXPLORE);
         } else {
-            transaction.show(mHomeFragment);
+            transaction.show(mExploreFragment);
         }
 
-        if (mHomePresenter == null) {
-            mHomePresenter = new HomePresenter(mHomeFragment);
-            mHomePresenter.setMainView(mMainView);
-            mHomePresenter.setMainPresenter(this);
+        if (mExplorePresenter == null) {
+            mExplorePresenter = new ExplorePresenter(mExploreFragment);
+            mExplorePresenter.setMainView(mMainView);
+            mExplorePresenter.setMainPresenter(this);
         }
 
         transaction.commit();
 
-        mMainView.showHomePageUi();
+        mMainView.showExplorePageUi();
     }
 
     @Override
@@ -65,7 +65,7 @@ public class MainPresenter implements MainContract.Presenter {
 
         if (mSearchingFragment == null) mSearchingFragment = SearchingFragment.newInstance();
 
-        if (mHomeFragment != null) transaction.hide(mHomeFragment);
+        if (mExploreFragment != null) transaction.hide(mExploreFragment);
         if (mSettingsFragment != null) transaction.hide(mSettingsFragment);
 
         if (!mSearchingFragment.isAdded()) {
@@ -96,7 +96,7 @@ public class MainPresenter implements MainContract.Presenter {
 
         if (mSettingsFragment == null) mSettingsFragment = SettingsFragment.newInstance();
 
-        if (mHomeFragment != null) transaction.hide(mHomeFragment);
+        if (mExploreFragment != null) transaction.hide(mExploreFragment);
         if (mSearchingFragment != null) transaction.hide(mSearchingFragment);
 
         if (!mSettingsFragment.isAdded()) {
@@ -138,7 +138,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void start() {
-        transToHomePage();
+        transToExplorePage();
     }
 
     /**

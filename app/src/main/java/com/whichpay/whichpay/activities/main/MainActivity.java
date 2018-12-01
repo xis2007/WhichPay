@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     @Override
-    public void showHomePageUi() {
+    public void showExplorePageUi() {
 
     }
 
@@ -95,14 +95,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
         mBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
         mBottomNavigation.setAccentColor(getResources().getColor(R.color.colorPrimary));
-        mBottomNavigation.setInactiveColor(getResources().getColor(R.color.grey));
+        mBottomNavigation.setInactiveColor(getResources().getColor(R.color.grey40));
 
         mBottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
                 switch (position) {
                     case Constants.BottomNavPosition.POSITION_HOME:
-                        mMainPresenter.transToHomePage();
+                        mMainPresenter.transToExplorePage();
                         break;
 
                     case Constants.BottomNavPosition.POSITION_SEARCH:

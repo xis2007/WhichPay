@@ -7,8 +7,8 @@ public interface MainContract {
     interface View extends BaseView<Presenter> {
         void showUpdateRequirementDialog();
 
-        // home page
-        void showHomePageUi();
+        // explore page
+        void showExplorePageUi();
 
         // search page
         void showSearchingPageUi();
@@ -32,7 +32,7 @@ public interface MainContract {
 
     interface Presenter extends BasePresenter {
         // main page
-        void transToHomePage();
+        void transToExplorePage();
 
         // search page
         void transToSearchingPage();

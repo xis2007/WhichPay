@@ -1,15 +1,15 @@
-package com.whichpay.whichpay.fragments.home;
+package com.whichpay.whichpay.fragments.explore;
 
 import com.whichpay.whichpay.activities.main.MainContract;
 import com.whichpay.whichpay.activities.main.MainPresenter;
 
-public class HomePresenter implements HomeContract.Presenter {
+public class ExplorePresenter implements ExploreContract.Presenter {
     private MainContract.View mMainView;
     private MainContract.Presenter mMainPresenter;
 
-    private HomeContract.View mHomeView;
+    private ExploreContract.View mHomeView;
 
-    public HomePresenter(HomeContract.View homeView) {
+    public ExplorePresenter(ExploreContract.View homeView) {
         mHomeView = homeView;
         mHomeView.setPresenter(this);
     }
