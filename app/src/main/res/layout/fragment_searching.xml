@@ -1,13 +1,64 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.whichpay.whichpay.fragments.search.SearchingFragment">
+             android:background="@color/white"
+             tools:context="com.whichpay.whichpay.fragments.searching.SearchingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Searhing Fragment"/>
+        android:paddingTop="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:id="@+id/container_searchbox_searching"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/searchView_searching"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:imeOptions="actionGo"
+                android:layout_weight="5"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:background="@drawable/box_search_box"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/button_cancel_search_searching"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:paddingStart="8dp"
+                android:text="Cancel"
+                android:textColor="@color/grey40"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:background="@color/white"
+                style="?android:attr/borderlessButtonStyle"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_searchbox_searching"/>
+
+    </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

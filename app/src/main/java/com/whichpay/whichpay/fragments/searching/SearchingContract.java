@@ -1,4 +1,4 @@
-package com.whichpay.whichpay.fragments.search;
+package com.whichpay.whichpay.fragments.searching;
 
 import com.whichpay.whichpay.activities.base.BasePresenter;
 import com.whichpay.whichpay.activities.base.BaseView;

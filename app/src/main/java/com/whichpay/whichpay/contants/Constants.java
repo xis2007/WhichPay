@@ -15,9 +15,9 @@ public class Constants {
 
     public class ItemViewType {
         public class ExplorePage {
-            public static final int PAGER = 1000;
-            public static final int NEARBY = 1001;
-
+            public static final int TITLE = 1000;
+            public static final int PAGER = 1001;
+            public static final int NEARBY = 1002;
         }
     }
 }

@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.recyclerview.adapters.ExplorePageAdapter;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+
 import static com.google.android.gms.common.internal.Preconditions.checkNotNull;
 
 public class ExploreFragment extends Fragment implements ExploreContract.View {
@@ -47,6 +49,8 @@ public class ExploreFragment extends Fragment implements ExploreContract.View {
         mPrimaryRecyclerView = rootView.findViewById(R.id.recyclerView_primary_explore);
         mPrimaryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mPrimaryRecyclerView.setAdapter(mPrimaryAdapter);
+
+        OverScrollDecoratorHelper.setUpOverScroll(mPrimaryRecyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
     }
 
     @Override

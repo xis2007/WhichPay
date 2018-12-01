@@ -7,8 +7,8 @@ import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.contants.Constants;
 import com.whichpay.whichpay.fragments.explore.ExploreFragment;
 import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
-import com.whichpay.whichpay.fragments.search.SearchingFragment;
-import com.whichpay.whichpay.fragments.search.SearchingPresenter;
+import com.whichpay.whichpay.fragments.searching.SearchingFragment;
+import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
 import com.whichpay.whichpay.fragments.settings.SettingsFragment;
 import com.whichpay.whichpay.fragments.settings.SettingsPresenter;
 

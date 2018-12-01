@@ -23,10 +23,9 @@ class PayLocation implements Serializable {
 
     private String mPayLocationUseApplePay;
     private String mPayLocationUseAndroidPay;
+    private String mPaylocationUseSamsungPay;
     private String mPayLocationUseLinePay;
     private String mPayLocationUseJkoPay;
-    // TODO
-    private String mPaylocationUseSamsungPay;
 
     public PayLocation (long Id,
                        String locationId,
@@ -39,10 +38,9 @@ class PayLocation implements Serializable {
                        double locationLongitude,
                        String locationUseApplePay,
                        String locationUseAndroidPay,
+                       String locationUseSamsungPay,
                        String locationUseLinePay,
-                       String locationUseJkoPay,
-                       // TODO
-                       String locationUseSamsungPay) {
+                       String locationUseJkoPay) {
         this.m_Id = Id;
         mLocationId = locationId;
         mPayLocationName = locationName;
@@ -57,10 +55,9 @@ class PayLocation implements Serializable {
 
         mPayLocationUseApplePay = locationUseApplePay;
         mPayLocationUseAndroidPay = locationUseAndroidPay;
+        mPaylocationUseSamsungPay = locationUseSamsungPay;
         mPayLocationUseLinePay = locationUseLinePay;
         mPayLocationUseJkoPay = locationUseJkoPay;
-        // TODO
-        mPaylocationUseSamsungPay = locationUseSamsungPay;
     }
 
     String getLocationId() {
@@ -113,7 +110,6 @@ class PayLocation implements Serializable {
         return mPayLocationUseJkoPay;
     }
 
-    // TODO
     String isPayLocationUseSamsungPay() {
         return mPaylocationUseSamsungPay;
     }

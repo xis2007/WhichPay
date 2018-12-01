@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/text_title_explore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Explore"
+        android:textColor="@color/grey40"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+</android.support.constraint.ConstraintLayout>
+    <!--android:gravity="center"-->
