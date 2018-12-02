@@ -33,7 +33,7 @@ public class ExploreFragment extends Fragment implements ExploreContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPrimaryAdapter = new ExplorePageAdapter((ExplorePresenter) mExplorePresenter);
+        mPrimaryAdapter = new ExplorePageAdapter(this, (ExplorePresenter) mExplorePresenter);
     }
 
     @Override

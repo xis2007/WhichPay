@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Location Name"
+        android:textColor="@color/grey60"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/applepay_image"
+        app:layout_constraintStart_toEndOf="@+id/image_location_type"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/image_location_type"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light"/>
+
+    <TextView
+        android:id="@+id/item_branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paylocation_list_item_branchName"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/item_name"
+        app:layout_constraintTop_toBottomOf="@+id/image_location_type"/>
+
+    <TextView
+        android:id="@+id/item_distance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:gravity="end"
+        android:maxLines="1"
+        android:text="distance"
+        android:textAlignment="textEnd"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/item_branch"
+        app:layout_constraintTop_toBottomOf="@+id/item_branch"/>
+
+
+    <ImageView
+        android:id="@+id/applepay_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/googlepay_image"
+        app:layout_constraintTop_toTopOf="@+id/googlepay_image"
+        app:srcCompat="@drawable/logo_apple_pay"/>
+
+    <ImageView
+        android:id="@+id/googlepay_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linepay_image"
+        app:layout_constraintEnd_toStartOf="@+id/samsungpay_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_google_pay"/>
+
+    <ImageView
+        android:id="@+id/samsungpay_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/jkopay_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_samsungpay"/>
+
+    <ImageView
+        android:id="@+id/linepay_image"
+
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/jkopay_image"
+        app:layout_constraintTop_toBottomOf="@+id/googlepay_image"
+        app:srcCompat="@drawable/logo_line_pay"/>
+
+    <ImageView
+        android:id="@+id/jkopay_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/samsungpay_image"
+        app:srcCompat="@drawable/logo_jko_pay"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

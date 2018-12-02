@@ -5,15 +5,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.contants.Constants;
+import com.whichpay.whichpay.fragments.explore.ExploreFragment;
 import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
 
 public class ExplorePageAdapter extends RecyclerView.Adapter {
+    private ExploreFragment mExploreFragment;
     private ExplorePresenter mExplorePresenter;
 
-    public ExplorePageAdapter (ExplorePresenter explorePresenter) {
+    public ExplorePageAdapter (ExploreFragment exploreFragment, ExplorePresenter explorePresenter) {
+        mExploreFragment = exploreFragment;
         mExplorePresenter = explorePresenter;
     }
 
@@ -50,12 +55,33 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
         } else {
             switch (position) {
                 case 2:
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_cafe)
+                            .into(((ExploreNearbyHolder) holder).getImageViewLeft());
+
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_dining)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
                     break;
 
                 case 3:
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_supermarket)
+                            .into(((ExploreNearbyHolder) holder).getImageViewLeft());
+
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_shopping)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
                     break;
 
                 case 4:
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_entertain)
+                            .into(((ExploreNearbyHolder) holder).getImageViewLeft());
+
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_beauty)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
                     break;
 
                 default:
@@ -96,8 +122,22 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
     }
 
     public class ExploreNearbyHolder extends RecyclerView.ViewHolder {
+        ImageView mImageViewLeft;
+        ImageView mImageViewRight;
+
         ExploreNearbyHolder(View itemView) {
             super(itemView);
+
+            mImageViewLeft = itemView.findViewById(R.id.image_left);
+            mImageViewRight = itemView.findViewById(R.id.image_right);
+        }
+
+        public ImageView getImageViewLeft() {
+            return mImageViewLeft;
+        }
+
+        public ImageView getImageViewRight() {
+            return mImageViewRight;
         }
     }
 }
