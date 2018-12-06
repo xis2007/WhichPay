@@ -9,9 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.whichpay.whichpay.R;
-import com.whichpay.whichpay.Util.ImeUtil;
+import com.whichpay.whichpay.util.ImeUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +21,7 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
 
     private SearchView mSearchView;
     private Button mButtonCancelSearch;
+    private TextView mTextNearbyType;
 
     public SearchingFragment() {
         // Required empty public constructor
@@ -65,6 +67,8 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
             }
         });
 
+        mTextNearbyType = rootView.findViewById(R.id.text_title_nearby_type);
+
         exitSearchState();
     }
 
@@ -81,6 +85,19 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
     @Override
     public void showSearchResults() {
 
+    }
+
+    @Override
+    public void setSearchViewEnabled(boolean isEnabled) {
+        if (isEnabled) {
+            mSearchView.setVisibility(View.VISIBLE);
+            mButtonCancelSearch.setVisibility(View.VISIBLE);
+            mTextNearbyType.setVisibility(View.GONE);
+        } else {
+            mSearchView.setVisibility(View.GONE);
+            mButtonCancelSearch.setVisibility(View.GONE);
+            mTextNearbyType.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

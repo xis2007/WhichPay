@@ -20,4 +20,9 @@ public class Constants {
             public static final int NEARBY = 1002;
         }
     }
+
+    public class Firestore {
+        public static final String COLLECTION_PAY_LOCATIONS = "PayLocations";
+
+    }
 }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "701198844961",
+    "firebase_url": "https://whichpay-16151.firebaseio.com",
+    "project_id": "whichpay-16151",
+    "storage_bucket": "whichpay-16151.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701198844961:android:b760e059f3db836d",
+        "android_client_info": {
+          "package_name": "com.justinlee.whichpay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701198844961-6bg1eqml5f3jna10seu7at8rhjtqm0du.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.justinlee.whichpay",
+            "certificate_hash": "04d330632c06d877f08951a4fba3ca140f432c4b"
+          }
+        },
+        {
+          "client_id": "701198844961-c4bos459it2pphkhkt208042bh6t4c6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhwhSq_AXHxTNzrugw_2BO6LLQU8jkeG4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701198844961-c4bos459it2pphkhkt208042bh6t4c6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

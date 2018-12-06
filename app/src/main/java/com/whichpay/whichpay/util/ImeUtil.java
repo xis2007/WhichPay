@@ -1,4 +1,4 @@
-package com.whichpay.whichpay.Util;
+package com.whichpay.whichpay.util;
 
 import android.app.Activity;
 import android.content.Context;

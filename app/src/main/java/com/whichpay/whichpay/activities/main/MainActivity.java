@@ -7,6 +7,10 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.activities.base.BaseActivity;
 import com.whichpay.whichpay.contants.Constants;
+import com.whichpay.whichpay.model.DataUpdater;
+import com.whichpay.whichpay.objects.PayLocation;
+
+import java.util.ArrayList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -122,5 +126,28 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private void initPresenter() {
         mMainPresenter = new MainPresenter(this, getFragmentManager());
         mMainPresenter.start();
+    }
+
+
+    /**
+     * Called only to update data on Firestore
+     * Users should not be able to use this method
+     */
+    int beginningIndex = 9000;
+    int stoppingIndex = 9000;
+
+    public void updateFirestoreData() {
+
+        DataUpdater dataUpdater = new DataUpdater(this);
+
+        ArrayList<PayLocation> payLocations = dataUpdater.getDataFromDatabase(beginningIndex);
+        dataUpdater.updateToFirestore(payLocations);
+    }
+
+    public void incrementUpdateIndexAndUpdateAgain(int updateAmount) {
+        beginningIndex += updateAmount;
+        if(beginningIndex < stoppingIndex) {
+            updateFirestoreData();
+        }
     }
 }

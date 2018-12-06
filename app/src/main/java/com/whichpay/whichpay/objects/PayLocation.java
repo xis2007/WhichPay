@@ -6,10 +6,10 @@ import java.io.Serializable;
  * Created by Justin on 11/26/2017.
  */
 
-class PayLocation implements Serializable {
+public class PayLocation implements Serializable {
     public static final long serialVersionUID = 20171126L;
 
-    private long m_Id;
+    private long _Id;
     private String mLocationId;
     private String mPayLocationName;
 
@@ -22,26 +22,30 @@ class PayLocation implements Serializable {
     private float mLocationDistance;
 
     private String mPayLocationUseApplePay;
-    private String mPayLocationUseAndroidPay;
+    private String mPayLocationUseGooglePay;
     private String mPaylocationUseSamsungPay;
     private String mPayLocationUseLinePay;
     private String mPayLocationUseJkoPay;
 
+    public PayLocation() {
+        mLocationDistance = -1;
+    }
+
     public PayLocation (long Id,
-                       String locationId,
-                       String locationName,
-                       String locationBranch,
-                       String locationType,
-                       String locationAddress,
-                       String locationDescription,
-                       double locationLatitude,
-                       double locationLongitude,
-                       String locationUseApplePay,
-                       String locationUseAndroidPay,
-                       String locationUseSamsungPay,
-                       String locationUseLinePay,
-                       String locationUseJkoPay) {
-        this.m_Id = Id;
+                        String locationId,
+                        String locationName,
+                        String locationBranch,
+                        String locationType,
+                        String locationAddress,
+                        String locationDescription,
+                        double locationLatitude,
+                        double locationLongitude,
+                        String locationUseApplePay,
+                        String locationUseAndroidPay,
+                        String locationUseSamsungPay,
+                        String locationUseLinePay,
+                        String locationUseJkoPay) {
+        this._Id = Id;
         mLocationId = locationId;
         mPayLocationName = locationName;
         mPaylocationBranch = locationBranch;
@@ -54,68 +58,134 @@ class PayLocation implements Serializable {
         mLocationLongitude = locationLongitude;
 
         mPayLocationUseApplePay = locationUseApplePay;
-        mPayLocationUseAndroidPay = locationUseAndroidPay;
+        mPayLocationUseGooglePay = locationUseAndroidPay;
         mPaylocationUseSamsungPay = locationUseSamsungPay;
         mPayLocationUseLinePay = locationUseLinePay;
         mPayLocationUseJkoPay = locationUseJkoPay;
     }
 
-    String getLocationId() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public long get_Id() {
+        return _Id;
+    }
+
+    public void set_Id(long _Id) {
+        this._Id = _Id;
+    }
+
+    public String getLocationId() {
         return mLocationId;
     }
 
-    String getPayLocationName() {
+    public void setLocationId(String locationId) {
+        mLocationId = locationId;
+    }
+
+    public String getPayLocationName() {
         return mPayLocationName;
     }
 
-    String getPaylocationBranch() { return mPaylocationBranch; }
+    public void setPayLocationName(String payLocationName) {
+        mPayLocationName = payLocationName;
+    }
 
-    String getPayLocationType() {
+    public String getPaylocationBranch() {
+        return mPaylocationBranch;
+    }
+
+    public void setPaylocationBranch(String paylocationBranch) {
+        mPaylocationBranch = paylocationBranch;
+    }
+
+    public String getPayLocationType() {
         return mPayLocationType;
     }
 
-    String getPayLocationAddress() {
+    public void setPayLocationType(String payLocationType) {
+        mPayLocationType = payLocationType;
+    }
+
+    public String getPayLocationAddress() {
         return mPayLocationAddress;
     }
 
-    float getDistanceFromDevice() {
-        return mLocationDistance;
+    public void setPayLocationAddress(String payLocationAddress) {
+        mPayLocationAddress = payLocationAddress;
     }
 
-    String getPayLocationDescription() {
+    public String getPayLocationDescription() {
         return mPayLocationDescription;
     }
 
-    double getLocationLatitude() {
+    public void setPayLocationDescription(String payLocationDescription) {
+        mPayLocationDescription = payLocationDescription;
+    }
+
+    public double getLocationLatitude() {
         return mLocationLatitude;
     }
 
-    double getLocationLongitude() {
+    public void setLocationLatitude(double locationLatitude) {
+        mLocationLatitude = locationLatitude;
+    }
+
+    public double getLocationLongitude() {
         return mLocationLongitude;
     }
 
-    String isPayLocationUseApplePay() {
+    public void setLocationLongitude(double locationLongitude) {
+        mLocationLongitude = locationLongitude;
+    }
+
+    public float getLocationDistance() {
+        return mLocationDistance;
+    }
+
+    public void setLocationDistance(float locationDistance) {
+        mLocationDistance = locationDistance;
+    }
+
+    public String getPayLocationUseApplePay() {
         return mPayLocationUseApplePay;
     }
 
-    String isPayLocationUseAndroidPay() {
-        return mPayLocationUseAndroidPay;
+    public void setPayLocationUseApplePay(String payLocationUseApplePay) {
+        mPayLocationUseApplePay = payLocationUseApplePay;
     }
 
-    String isPayLocationUseLinePay() {
-        return mPayLocationUseLinePay;
+    public String getPayLocationUseGooglePay() {
+        return mPayLocationUseGooglePay;
     }
 
-    String isPayLocationUseJkoPay() {
-        return mPayLocationUseJkoPay;
+    public void setPayLocationUseGooglePay(String payLocationUseGooglePay) {
+        mPayLocationUseGooglePay = payLocationUseGooglePay;
     }
 
-    String isPayLocationUseSamsungPay() {
+    public String getPaylocationUseSamsungPay() {
         return mPaylocationUseSamsungPay;
     }
 
-    void setLocationDistance(float locationDistance) {
-        mLocationDistance = locationDistance;
+    public void setPaylocationUseSamsungPay(String paylocationUseSamsungPay) {
+        mPaylocationUseSamsungPay = paylocationUseSamsungPay;
+    }
+
+    public String getPayLocationUseLinePay() {
+        return mPayLocationUseLinePay;
+    }
+
+    public void setPayLocationUseLinePay(String payLocationUseLinePay) {
+        mPayLocationUseLinePay = payLocationUseLinePay;
+    }
+
+    public String getPayLocationUseJkoPay() {
+        return mPayLocationUseJkoPay;
+    }
+
+    public void setPayLocationUseJkoPay(String payLocationUseJkoPay) {
+        mPayLocationUseJkoPay = payLocationUseJkoPay;
     }
 
     @Override

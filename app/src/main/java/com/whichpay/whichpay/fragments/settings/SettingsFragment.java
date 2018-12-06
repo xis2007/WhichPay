@@ -30,9 +30,6 @@ public class SettingsFragment extends Fragment implements SettingsContract.View 
         return rootView;
     }
 
-
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
