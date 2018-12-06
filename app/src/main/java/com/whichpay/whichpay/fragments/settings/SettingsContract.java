@@ -5,10 +5,12 @@ import com.whichpay.whichpay.activities.base.BaseView;
 
 public interface SettingsContract {
     interface View extends BaseView<Presenter> {
+        void initDefaultLocation();
 
+        void showDefaultLocation(String defaultLocation);
     }
 
     interface Presenter extends BasePresenter {
-
+        void setNewDefaultLocation(int defaultLocationIndex);
     }
 }

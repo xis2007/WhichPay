@@ -276,8 +276,16 @@
     <string name="title_linepay">Line Pay</string>
     <string name="title_jkopay">JKO Pay</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_location_keelung_city">Keelung City</string>
+    <string name="default_location_taipei_city">Taipei City</string>
+    <string name="default_location_new_taipei_city">New Taipei City</string>
+    <string name="default_location_taoyuan_county">Taoyuan County</string>
+    <string name="default_location_taichung_city">Taichung City</string>
+    <string name="default_location_kaohsiung_city">Kaohsiung City</string>
 
+
+    <!--must keep below&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+    <!--fragment_settings-->
 
 </resources>

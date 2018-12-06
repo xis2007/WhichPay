@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioGroup_defaultLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <RadioButton
+                android:id="@+id/radioButton_keelung_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Keelung City"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_taipei_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Taipei City"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_new_taipei_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="New Taipei City"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_taoyuan_county"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Taoyuan County"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_taichung_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Taichung City"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_kaohsiung_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kaohsiung City"/>
+
+        </RadioGroup>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

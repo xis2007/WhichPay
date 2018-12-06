@@ -25,4 +25,20 @@ public class Constants {
         public static final String COLLECTION_PAY_LOCATIONS = "PayLocations";
 
     }
+
+//    public class DefaultLocation {
+//        public static final int LOCATION_KEELUNG_CITY = 10000;
+//        public static final int LOCATION_TAIPEI_CITY = 10001;
+//        public static final int LOCATION_NEW_TAIPEI_CITY = 10002;
+//        public static final int LOCATION_TAOYUAN_COUNTY = 10003;
+//        public static final int LOCATION_TAICHUNG_CITY = 10004;
+//        public static final int LOCATION_KAOHSIUNG_CITY = 10005;
+//    }
+
+    public class SharedPreferences {
+        public static final String LOCATION_SETTINGS = "Location Settings";
+        public static final String DEFAULT_LOCATION_NAME = "Default Location Name";
+        public static final String DEFAULT_LOCATION_LAT = "Default Location Latitude";
+        public static final String DEFAULT_LOCATION_LNG = "Default Location Longitude";
+    }
 }

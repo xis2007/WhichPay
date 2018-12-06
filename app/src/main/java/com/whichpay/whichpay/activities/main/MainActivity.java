@@ -7,10 +7,6 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.activities.base.BaseActivity;
 import com.whichpay.whichpay.contants.Constants;
-import com.whichpay.whichpay.model.DataUpdater;
-import com.whichpay.whichpay.objects.PayLocation;
-
-import java.util.ArrayList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -138,10 +134,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     public void updateFirestoreData() {
 
-        DataUpdater dataUpdater = new DataUpdater(this);
-
-        ArrayList<PayLocation> payLocations = dataUpdater.getDataFromDatabase(beginningIndex);
-        dataUpdater.updateToFirestore(payLocations);
+//        DataUpdater dataUpdater = new DataUpdater(this);
+//
+//        ArrayList<PayLocation> payLocations = dataUpdater.getDataFromDatabase(beginningIndex);
+//        dataUpdater.updateToFirestore(payLocations);
     }
 
     public void incrementUpdateIndexAndUpdateAgain(int updateAmount) {
