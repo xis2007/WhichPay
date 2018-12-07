@@ -2,15 +2,20 @@ package com.whichpay.whichpay.fragments.searching;
 
 import com.whichpay.whichpay.activities.base.BasePresenter;
 import com.whichpay.whichpay.activities.base.BaseView;
+import com.whichpay.whichpay.objects.PayLocation;
+
+import java.util.ArrayList;
 
 public interface SearchingContract {
     interface View extends BaseView<Presenter> {
-        void showSearchResults();
+        void showSearchResults(ArrayList<PayLocation> payLocations);
 
         void setSearchViewEnabled(boolean isEnabled);
     }
 
     interface Presenter extends BasePresenter {
-        void informToShowSearchResults();
+        void informToShowSearchResults(ArrayList<PayLocation> payLocations);
+
+        void searchByInputQuery(String query);
     }
 }

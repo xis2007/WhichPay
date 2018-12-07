@@ -45,14 +45,6 @@ public class PayLocationsDatabase extends SQLiteOpenHelper {
             + PAY_LOCATIONS_USE_JKOPAY + " TEXT NOT NULL) ";
 
 
-    public static final String CAFES_DRINKS = "Cafe&Drink";
-    public static final String DINING = "Dining";
-    public static final String SHOPPING = "Shopping";
-    public static final String SUPERMARKETS = "Supermarket";
-    public static final String BEAUTIES = "Beauty";
-    public static final String TRAVEL_ENTERTAIN = "Travel&Entertain";
-
-
     public PayLocationsDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

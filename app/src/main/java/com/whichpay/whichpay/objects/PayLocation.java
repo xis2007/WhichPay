@@ -197,4 +197,24 @@ public class PayLocation implements Serializable {
 //    public int compareTo(@NonNull PayLocation o) {
 //        return PL_Manager.Comparators.DISTANCE.compare(this, o);
 //    }
+
+    public boolean isUseApplePay() {
+        return getPayLocationUseApplePay().equals("Y");
+    }
+
+    public boolean isUseGooglePay() {
+        return getPayLocationUseGooglePay().equals("Y");
+    }
+
+    public boolean isUseSamsungPay() {
+        return getPaylocationUseSamsungPay().equals("Y");
+    }
+
+    public boolean isUseLinePay() {
+        return getPayLocationUseLinePay().equals("Y");
+    }
+
+    public boolean isUseJkoPay() {
+        return getPayLocationUseJkoPay().equals("Y");
+    }
 }

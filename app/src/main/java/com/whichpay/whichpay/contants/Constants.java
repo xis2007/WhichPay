@@ -41,4 +41,30 @@ public class Constants {
         public static final String DEFAULT_LOCATION_LAT = "Default Location Latitude";
         public static final String DEFAULT_LOCATION_LNG = "Default Location Longitude";
     }
+
+    public class PayLocationsAttribute {
+        public static final String _ID = "_Id";
+        public static final String LOCATION_ID= "locationId";
+        public static final String LOCATION_NAME= "payLocationName";
+        public static final String LOCATION_BRANCH = "paylocationBranch";
+        public static final String LOCATION_TYPE = "paylocationType";
+        public static final String LOCATION_ADDRESS = "paylocationAddress";
+        public static final String LOCATION_DESCRIPTION = "paylocationDescription";
+        public static final String LOCATION_LAT = "locationLatitude";
+        public static final String LOCATION_LNG = "locationLongitude";
+        public static final String LOCATION_USE_APPLE_PAY = "paylocationUseApplePay";
+        public static final String LOCATION_USE_ANDROID_PAY = "paylocationUseAndroidPay";
+        public static final String LOCATION_USE_SAMSUNG_PAY = "paylocationUseSamsungPay";
+        public static final String LOCATION_USE_LINE_PAY = "paylocationUseLinePay";
+        public static final String LOCATION_USE_JKO_PAY = "paylocationUseJkoPay";
+    }
+
+    public class PayLocationsType {
+        public static final String CAFES_DRINKS = "Cafe&Drink";
+        public static final String DINING = "Dining";
+        public static final String SHOPPING = "Shopping";
+        public static final String SUPERMARKETS = "Supermarket";
+        public static final String BEAUTIES = "Beauty";
+        public static final String TRAVEL_ENTERTAIN = "Travel&Entertain";
+    }
 }

@@ -64,11 +64,6 @@ public class SettingsFragment extends Fragment implements SettingsContract.View 
     }
 
     @Override
-    public void initDefaultLocation() {
-        mButtonDefaultLocation.setText(WhichPay.getDefaultLocation().getProvider());
-    }
-
-    @Override
     public void showDefaultLocation(String defaultLocation) {
         mButtonDefaultLocation.setText(defaultLocation);
     }

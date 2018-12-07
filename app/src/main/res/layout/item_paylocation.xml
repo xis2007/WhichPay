@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/item_name"
@@ -19,7 +20,7 @@
         android:text="Location Name"
         android:textColor="@color/grey60"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/applepay_image"
+        app:layout_constraintEnd_toStartOf="@+id/image_applepay"
         app:layout_constraintStart_toEndOf="@+id/image_location_type"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -57,52 +58,50 @@
         app:layout_constraintStart_toStartOf="@+id/item_branch"
         app:layout_constraintTop_toBottomOf="@+id/item_branch"/>
 
-
     <ImageView
-        android:id="@+id/applepay_image"
+        android:id="@+id/image_applepay"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/googlepay_image"
-        app:layout_constraintTop_toTopOf="@+id/googlepay_image"
+        app:layout_constraintEnd_toStartOf="@+id/image_googlepay"
+        app:layout_constraintTop_toTopOf="@+id/image_googlepay"
         app:srcCompat="@drawable/logo_apple_pay"/>
 
     <ImageView
-        android:id="@+id/googlepay_image"
+        android:id="@+id/image_googlepay"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linepay_image"
-        app:layout_constraintEnd_toStartOf="@+id/samsungpay_image"
+        app:layout_constraintBottom_toTopOf="@+id/image_linepay"
+        app:layout_constraintEnd_toStartOf="@+id/image_samsungpay"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_google_pay"/>
 
     <ImageView
-        android:id="@+id/samsungpay_image"
+        android:id="@+id/image_samsungpay"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/jkopay_image"
+        app:layout_constraintBottom_toTopOf="@+id/image_jkopay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_samsungpay"/>
 
     <ImageView
-        android:id="@+id/linepay_image"
-
+        android:id="@+id/image_linepay"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/jkopay_image"
-        app:layout_constraintTop_toBottomOf="@+id/googlepay_image"
+        app:layout_constraintEnd_toStartOf="@+id/image_jkopay"
+        app:layout_constraintTop_toBottomOf="@+id/image_googlepay"
         app:srcCompat="@drawable/logo_line_pay"/>
 
     <ImageView
-        android:id="@+id/jkopay_image"
+        android:id="@+id/image_jkopay"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
@@ -110,9 +109,8 @@
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/samsungpay_image"
-        app:srcCompat="@drawable/logo_jko_pay"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/image_samsungpay"
+        app:srcCompat="@drawable/logo_jko_pay"/>
 
 
 </android.support.constraint.ConstraintLayout>

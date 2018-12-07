@@ -59,6 +59,15 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                             .load(R.drawable.icon_cafe)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
 
+//                    // TODO refactor
+//                    ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            new FirestoreDataManager().searchByType(mExplorePresenter, Constants.PayLocationsType.CAFES_DRINKS);
+//                        }
+//                    });
+
+
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_dining)
                             .into(((ExploreNearbyHolder) holder).getImageViewRight());

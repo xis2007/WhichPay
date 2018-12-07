@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
-import android.util.Log;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.whichpay.whichpay.R;
@@ -29,8 +28,6 @@ public class WhichPay extends Application {
         initializeLocationSettings();
     }
 
-
-
     public static Context getAppContext() {
         return mContext;
     }
@@ -49,8 +46,6 @@ public class WhichPay extends Application {
     }
 
 
-
-
     /**
      * ********************************************************************************************
      * For Location Settings
@@ -63,8 +58,8 @@ public class WhichPay extends Application {
                 getAppContext().getSharedPreferences(Constants.SharedPreferences.LOCATION_SETTINGS, MODE_PRIVATE);
 
         mDefaultLocation.setProvider(sharedPreferences.getString(Constants.SharedPreferences.DEFAULT_LOCATION_NAME, getString(R.string.default_location_taipei_city)));
-        mDefaultLocation.setLatitude(Double.valueOf(sharedPreferences.getString(Constants.SharedPreferences.DEFAULT_LOCATION_LAT, "121.7081")));
-        mDefaultLocation.setLongitude(Double.valueOf(sharedPreferences.getString(Constants.SharedPreferences.DEFAULT_LOCATION_LAT, "25.09108")));
+        mDefaultLocation.setLatitude(Double.valueOf(sharedPreferences.getString(Constants.SharedPreferences.DEFAULT_LOCATION_LAT, "25.054685")));
+        mDefaultLocation.setLongitude(Double.valueOf(sharedPreferences.getString(Constants.SharedPreferences.DEFAULT_LOCATION_LNG, "121.543801")));
     }
 
     public static void setDefaultLocation(Location defaultLocation) {
@@ -76,10 +71,14 @@ public class WhichPay extends Application {
                 .putString(Constants.SharedPreferences.DEFAULT_LOCATION_LAT, String.valueOf(defaultLocation.getLatitude()))
                 .putString(Constants.SharedPreferences.DEFAULT_LOCATION_LNG, String.valueOf(defaultLocation.getLongitude()))
                 .apply();
-
-        Log.d("defaultLocationnnnnn", "setNewDefaultLocation: " + mDefaultLocation.getProvider());
     }
+
     public static Location getDefaultLocation() {
+        return mDefaultLocation;
+    }
+
+    public static Location getCurrentLocation() {
+        // TODO to be changed
         return mDefaultLocation;
     }
 
