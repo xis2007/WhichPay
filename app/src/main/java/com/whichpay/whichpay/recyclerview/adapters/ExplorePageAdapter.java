@@ -59,18 +59,23 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                             .load(R.drawable.icon_cafe)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
 
-//                    // TODO refactor
-//                    ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            new FirestoreDataManager().searchByType(mExplorePresenter, Constants.PayLocationsType.CAFES_DRINKS);
-//                        }
-//                    });
-
+                    ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.CAFES_DRINKS);
+                        }
+                    });
 
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_dining)
                             .into(((ExploreNearbyHolder) holder).getImageViewRight());
+
+                    ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.DINING);
+                        }
+                    });
                     break;
 
                 case 3:
@@ -78,9 +83,23 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                             .load(R.drawable.icon_supermarket)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
 
+                    ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.SUPERMARKETS);
+                        }
+                    });
+
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_shopping)
                             .into(((ExploreNearbyHolder) holder).getImageViewRight());
+
+                    ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.SHOPPING);
+                        }
+                    });
                     break;
 
                 case 4:
@@ -88,9 +107,23 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                             .load(R.drawable.icon_entertain)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
 
+                    ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.TRAVEL_ENTERTAIN);
+                        }
+                    });
+
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_beauty)
                             .into(((ExploreNearbyHolder) holder).getImageViewRight());
+
+                    ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.BEAUTIES);
+                        }
+                    });
                     break;
 
                 default:

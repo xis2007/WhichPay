@@ -10,12 +10,14 @@ public interface SearchingContract {
     interface View extends BaseView<Presenter> {
         void showSearchResults(ArrayList<PayLocation> payLocations);
 
-        void setSearchViewEnabled(boolean isEnabled);
+        void setSearchViewEnabled(boolean isEnabled, String payLocationsType);
     }
 
     interface Presenter extends BasePresenter {
         void informToShowSearchResults(ArrayList<PayLocation> payLocations);
 
-        void searchByInputQuery(String query);
+        void searchByPayLocationNameOrAddress(String query);
+
+        void searchByPayLocationType(String locationType);
     }
 }

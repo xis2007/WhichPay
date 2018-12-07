@@ -67,4 +67,9 @@ public class Constants {
         public static final String BEAUTIES = "Beauty";
         public static final String TRAVEL_ENTERTAIN = "Travel&Entertain";
     }
+
+    public class SearchType {
+        public static final int TYPE_SEARCH_NAME_OR_ADDRESS = 600;
+        public static final int TYPE_SEARCH_LOCATION_TYPE = 601;
+    }
 }

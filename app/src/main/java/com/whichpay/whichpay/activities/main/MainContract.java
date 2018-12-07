@@ -2,6 +2,7 @@ package com.whichpay.whichpay.activities.main;
 
 import com.whichpay.whichpay.activities.base.BasePresenter;
 import com.whichpay.whichpay.activities.base.BaseView;
+import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
 
 public interface MainContract {
     interface View extends BaseView<Presenter> {
@@ -11,7 +12,7 @@ public interface MainContract {
         void showExplorePageUi();
 
         // search page
-        void showSearchingPageUi();
+        void showSearchingPageUi(int searchType, String payLocationsType);
 
         // nearby results page
         void showNearbyResultsPageUi();
@@ -35,7 +36,7 @@ public interface MainContract {
         void transToExplorePage();
 
         // search page
-        void transToSearchingPage();
+        void transToSearchingPage(int searchType, String payLocationsType);
 
         // nearby results page
         void transToNearbyResultsPage();
@@ -52,6 +53,9 @@ public interface MainContract {
         void promptNoNetworkAlert();
 
         void promptNoGpsAlert();
+
+        // getters
+        SearchingPresenter getSearchingPresenter();
 
     }
 

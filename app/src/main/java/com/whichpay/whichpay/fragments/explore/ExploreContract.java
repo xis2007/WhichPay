@@ -9,6 +9,6 @@ public interface ExploreContract {
     }
 
     interface Presenter extends BasePresenter {
-        void informToShowNearbyResults();
+        void informToShowNearbyResults(int searchType, String payLocationsType);
     }
 }

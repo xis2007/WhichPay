@@ -60,7 +60,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void transToSearchingPage() {
+    public void transToSearchingPage(int searchType, String payLocationsType) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
 
         if (mSearchingFragment == null) mSearchingFragment = SearchingFragment.newInstance();
@@ -82,7 +82,13 @@ public class MainPresenter implements MainContract.Presenter {
 
         transaction.commit();
 
-        mMainView.showSearchingPageUi();
+        if(searchType == Constants.SearchType.TYPE_SEARCH_NAME_OR_ADDRESS) {
+            mSearchingFragment.setSearchViewEnabled(true, payLocationsType);
+        } else {
+            mSearchingFragment.setSearchViewEnabled(false, payLocationsType);
+        }
+
+        mMainView.showSearchingPageUi(searchType, payLocationsType);
     }
 
     @Override
@@ -137,7 +143,15 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
+    public SearchingPresenter getSearchingPresenter() {
+        return mSearchingPresenter;
+    }
+
+    @Override
     public void start() {
+        // initialize searching fragment at start up to avoid null pointer exception
+        initSearchingPage();
+
         transToExplorePage();
     }
 
@@ -146,4 +160,28 @@ public class MainPresenter implements MainContract.Presenter {
      * Getters and Setters
      * ***********************************************************************************
      */
+
+
+
+
+    /**
+     * ***********************************************************************************
+     * Helper Methods
+     * ***********************************************************************************
+     */
+    private void initSearchingPage() {
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+
+        if (mSearchingFragment == null) mSearchingFragment = SearchingFragment.newInstance();
+
+        transaction.add(R.id.container_main, mSearchingFragment, Constants.FragmentFlags.FLAG_SEARCHING);
+
+        if (mSearchingPresenter == null) {
+            mSearchingPresenter = new SearchingPresenter(mSearchingFragment);
+            mSearchingPresenter.setMainView(mMainView);
+            mSearchingPresenter.setMainPresenter(this);
+        }
+
+        transaction.commit();
+    }
 }

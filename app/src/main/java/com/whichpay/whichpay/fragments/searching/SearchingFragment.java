@@ -82,7 +82,7 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                mSearchingPresenter.searchByInputQuery(query);
+                mSearchingPresenter.searchByPayLocationNameOrAddress(query);
                 return true;
             }
 
@@ -132,15 +132,18 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
     }
 
     @Override
-    public void setSearchViewEnabled(boolean isEnabled) {
+    public void setSearchViewEnabled(boolean isEnabled, String payLocationsType) {
         if (isEnabled) {
             mSearchView.setVisibility(View.VISIBLE);
             mButtonCancelSearch.setVisibility(View.VISIBLE);
             mTextNearbyType.setVisibility(View.GONE);
+            exitSearchState();
+
         } else {
             mSearchView.setVisibility(View.GONE);
             mButtonCancelSearch.setVisibility(View.GONE);
             mTextNearbyType.setVisibility(View.VISIBLE);
+            mTextNearbyType.setText(payLocationsType);
         }
     }
 

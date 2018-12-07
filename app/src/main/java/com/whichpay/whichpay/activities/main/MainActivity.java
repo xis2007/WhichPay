@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     @Override
-    public void showSearchingPageUi() {
+    public void showSearchingPageUi(int searchType, String payLocationsType) {
 
     }
 
@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                         break;
 
                     case Constants.BottomNavPosition.POSITION_SEARCH:
-                        mMainPresenter.transToSearchingPage();
+                        mMainPresenter.transToSearchingPage(Constants.SearchType.TYPE_SEARCH_NAME_OR_ADDRESS, null);
                         break;
 
                     case Constants.BottomNavPosition.POSITION_SETTINGS:

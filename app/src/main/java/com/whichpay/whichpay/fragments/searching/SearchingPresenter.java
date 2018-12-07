@@ -26,8 +26,13 @@ public class SearchingPresenter implements SearchingContract.Presenter {
     }
 
     @Override
-    public void searchByInputQuery(String query) {
+    public void searchByPayLocationNameOrAddress(String query) {
         new FirestoreDataManager((Context) mMainView).searchByUserInput(this, query);
+    }
+
+    @Override
+    public void searchByPayLocationType(String locationType) {
+        new FirestoreDataManager((Context) mMainView).searchByPayLocationType(this, locationType);
     }
 
     @Override
