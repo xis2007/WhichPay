@@ -1,21 +1,22 @@
 package com.whichpay.whichpay.fragments.settings;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.util.Log;
 
 import com.whichpay.whichpay.R;
+import com.whichpay.whichpay.activities.main.MainActivity;
 import com.whichpay.whichpay.activities.main.MainContract;
 import com.whichpay.whichpay.activities.main.MainPresenter;
 import com.whichpay.whichpay.application.WhichPay;
+import com.whichpay.whichpay.contants.Constants;
 
 public class SettingsPresenter implements SettingsContract.Presenter {
     private MainContract.View mMainView;
     private MainContract.Presenter mMainPresenter;
 
     private SettingsContract.View mSettingsView;
-
-
 
     public SettingsPresenter(SettingsContract.View settingsView) {
         mSettingsView = settingsView;
@@ -25,6 +26,7 @@ public class SettingsPresenter implements SettingsContract.Presenter {
     @Override
     public void start() {
         mSettingsView.showDefaultLocation(WhichPay.getDefaultLocation().getProvider());
+        mSettingsView.showPayLocationTypeSettings();
     }
 
     @Override
@@ -78,6 +80,35 @@ public class SettingsPresenter implements SettingsContract.Presenter {
 
         WhichPay.setDefaultLocation(defaultLocation);
         mSettingsView.showDefaultLocation(defaultLocation.getProvider());
+    }
+
+    @Override
+    public void setUserPayLocationTypePref(int viewId, boolean isChecked) {
+        SharedPreferences.Editor prefEditor = ((MainActivity) mMainView).getSharedPreferences(Constants.SharedPreferences.PAY_TYPE_SETTINGS, Context.MODE_PRIVATE).edit();
+
+        switch (viewId) {
+            case R.id.switch_apple_pay:
+                prefEditor.putBoolean(Constants.SharedPreferences.PAY_TYPE_APPLE_PAY, isChecked);
+                break;
+
+            case R.id.switch_google_pay:
+                prefEditor.putBoolean(Constants.SharedPreferences.PAY_TYPE_GOOGLE_PAY, isChecked);
+                break;
+
+            case R.id.switch_samsung_pay:
+                prefEditor.putBoolean(Constants.SharedPreferences.PAY_TYPE_SAMSUNG_PAY, isChecked);
+                break;
+
+            case R.id.switch_line_pay:
+                prefEditor.putBoolean(Constants.SharedPreferences.PAY_TYPE_LINE_PAY, isChecked);
+                break;
+
+            case R.id.switch_jko_pay:
+                prefEditor.putBoolean(Constants.SharedPreferences.PAY_TYPE_JKO_PAY, isChecked);
+                break;
+        }
+
+        prefEditor.apply();
     }
 
 

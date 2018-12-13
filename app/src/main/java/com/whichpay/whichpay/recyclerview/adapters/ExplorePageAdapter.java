@@ -1,6 +1,7 @@
 package com.whichpay.whichpay.recyclerview.adapters;
 
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.contants.Constants;
 import com.whichpay.whichpay.fragments.explore.ExploreFragment;
 import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
+import com.whichpay.whichpay.viewpager.ExplorePagerAdapter;
+
+import java.util.ArrayList;
 
 public class ExplorePageAdapter extends RecyclerView.Adapter {
     private ExploreFragment mExploreFragment;
@@ -51,7 +55,16 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
         if (holder instanceof ExploreTitleHolder) {
 
         } else if (holder instanceof ExplorePagerHolder) {
+            ArrayList<Integer> imagesList = new ArrayList<>();
+            imagesList.add(R.drawable.icon_beauty);
+            imagesList.add(R.drawable.icon_supermarket);
 
+            ExplorePagerAdapter pagerAdapter = new ExplorePagerAdapter(mExploreFragment.getActivity(), imagesList);
+            ((ExplorePagerHolder) holder).getViewPager().removeAllViewsInLayout();
+            ((ExplorePagerHolder) holder).getViewPager().setAdapter(pagerAdapter);
+            ((ExplorePagerHolder) holder).getViewPager().setOffscreenPageLimit(5);
+//            ExtensiblePageIndicator extensiblePageIndicator = getActivity().findViewById(R.id.flexibleIndicator);
+//            extensiblePageIndicator.initViewPager(mGameResultViewPager);
         } else {
             switch (position) {
                 case 2:
@@ -158,8 +171,16 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
     }
 
     public class ExplorePagerHolder extends RecyclerView.ViewHolder {
+        ViewPager mViewPager;
+
         ExplorePagerHolder(View itemView) {
             super(itemView);
+
+            mViewPager = itemView.findViewById(R.id.viewPager_explore);
+        }
+
+        public ViewPager getViewPager() {
+            return mViewPager;
         }
     }
 

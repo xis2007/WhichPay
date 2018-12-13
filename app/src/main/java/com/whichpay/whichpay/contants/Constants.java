@@ -40,6 +40,13 @@ public class Constants {
         public static final String DEFAULT_LOCATION_NAME = "Default Location Name";
         public static final String DEFAULT_LOCATION_LAT = "Default Location Latitude";
         public static final String DEFAULT_LOCATION_LNG = "Default Location Longitude";
+
+        public static final String PAY_TYPE_SETTINGS = "Pay Type Settings";
+        public static final String PAY_TYPE_APPLE_PAY = "Apple Pay";
+        public static final String PAY_TYPE_GOOGLE_PAY = "Google Pay";
+        public static final String PAY_TYPE_SAMSUNG_PAY = "Samsung Pay";
+        public static final String PAY_TYPE_LINE_PAY = "Line Pay";
+        public static final String PAY_TYPE_JKO_PAY = "Jko Pay";
     }
 
     public class PayLocationsAttribute {

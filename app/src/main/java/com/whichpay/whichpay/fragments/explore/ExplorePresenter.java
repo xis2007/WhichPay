@@ -2,7 +2,6 @@ package com.whichpay.whichpay.fragments.explore;
 
 import com.whichpay.whichpay.activities.main.MainContract;
 import com.whichpay.whichpay.activities.main.MainPresenter;
-import com.whichpay.whichpay.contants.Constants;
 
 public class ExplorePresenter implements ExploreContract.Presenter {
     private MainContract.View mMainView;
@@ -19,7 +18,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
     @Override
     public void informToShowNearbyResults(int searchType, String payLocationsType) {
         mMainPresenter.transToSearchingPage(searchType, payLocationsType);
-        mMainPresenter.getSearchingPresenter().searchByPayLocationType(Constants.PayLocationsType.CAFES_DRINKS);
+        mMainPresenter.getSearchingPresenter().searchByPayLocationType(payLocationsType);
     }
 
     @Override
