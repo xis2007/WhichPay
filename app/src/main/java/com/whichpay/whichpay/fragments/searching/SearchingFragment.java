@@ -148,6 +148,11 @@ public class SearchingFragment extends Fragment implements SearchingContract.Vie
     }
 
     @Override
+    public void showNoResults() {
+        mSearchingResultsAdapter.clearList();
+    }
+
+    @Override
     public void setPresenter(SearchingContract.Presenter presenter) {
         mSearchingPresenter = checkNotNull(presenter);
     }

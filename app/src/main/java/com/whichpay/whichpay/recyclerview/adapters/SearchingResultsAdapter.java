@@ -133,6 +133,15 @@ public class SearchingResultsAdapter extends RecyclerView.Adapter {
         }
     }
 
+    public void refreshList() {
+        notifyDataSetChanged();
+    }
+
+    public void clearList() {
+        if(mPayLocationsList != null) mPayLocationsList.clear();
+        notifyDataSetChanged();
+    }
+
     public class PayLocationHolder extends RecyclerView.ViewHolder {
         TextView locationName;
         TextView locationBranch;

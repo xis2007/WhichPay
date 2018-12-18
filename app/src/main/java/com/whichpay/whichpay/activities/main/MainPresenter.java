@@ -82,6 +82,8 @@ public class MainPresenter implements MainContract.Presenter {
 
         transaction.commit();
 
+        mSearchingPresenter.clearList();
+
         if(searchType == Constants.SearchType.TYPE_SEARCH_NAME_OR_ADDRESS) {
             mSearchingFragment.setSearchViewEnabled(true, payLocationsType);
         } else {

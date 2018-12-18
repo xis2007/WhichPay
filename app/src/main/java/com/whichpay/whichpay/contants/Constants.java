@@ -60,7 +60,7 @@ public class Constants {
         public static final String LOCATION_LAT = "locationLatitude";
         public static final String LOCATION_LNG = "locationLongitude";
         public static final String LOCATION_USE_APPLE_PAY = "paylocationUseApplePay";
-        public static final String LOCATION_USE_ANDROID_PAY = "paylocationUseAndroidPay";
+        public static final String LOCATION_USE_GOOGLE_PAY = "paylocationUseAndroidPay";
         public static final String LOCATION_USE_SAMSUNG_PAY = "paylocationUseSamsungPay";
         public static final String LOCATION_USE_LINE_PAY = "paylocationUseLinePay";
         public static final String LOCATION_USE_JKO_PAY = "paylocationUseJkoPay";

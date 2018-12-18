@@ -11,6 +11,8 @@ public interface SearchingContract {
         void showSearchResults(ArrayList<PayLocation> payLocations);
 
         void setSearchViewEnabled(boolean isEnabled, String payLocationsType);
+
+        void showNoResults();
     }
 
     interface Presenter extends BasePresenter {
@@ -19,5 +21,7 @@ public interface SearchingContract {
         void searchByPayLocationNameOrAddress(String query);
 
         void searchByPayLocationType(String locationType);
+
+        void clearList();
     }
 }

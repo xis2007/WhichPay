@@ -1,9 +1,11 @@
 package com.whichpay.whichpay.model.firestore;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,11 +56,8 @@ public class FirestoreDataManager {
                             Snackbar.make(((MainActivity) mContext).findViewById(R.id.container_main), "Something went Wrong, please try again", Snackbar.LENGTH_SHORT).show();
                         }
                     }
-
-
                 });
     }
-
 
 
     public void searchByPayLocationType(final SearchingContract.Presenter presenter, final String locationType) {
@@ -78,6 +77,7 @@ public class FirestoreDataManager {
                                 ArrayList<PayLocation> distancedList = addDistanceToPayLocations(filteredList);
                                 ArrayList<PayLocation> sortedList = sortListByDistance(distancedList);
                                 presenter.informToShowSearchResults(sortedList);
+
                             } else {
                                 Snackbar.make(((MainActivity) mContext).findViewById(R.id.container_main), "Nothing Found", Snackbar.LENGTH_SHORT).show();
                             }
@@ -121,7 +121,7 @@ public class FirestoreDataManager {
             }
         }
 
-        return filteredList;
+        return filterByPayLocationMethod(filteredList);
     }
 
     private ArrayList<PayLocation> filterByNameOrAddress(String userInput, ArrayList<PayLocation> payLocations) {
@@ -142,6 +142,45 @@ public class FirestoreDataManager {
         for (PayLocation payLocation : payLocations) {
             if(payLocation.getPayLocationType().toUpperCase().contains(locationType.toUpperCase())) {
                 filteredList.add(payLocation);
+            }
+        }
+
+        return filteredList;
+    }
+
+    private ArrayList<PayLocation> filterByPayLocationMethod(ArrayList<PayLocation> payLocations) {
+        ArrayList<PayLocation> filteredList = new ArrayList<>();
+
+        SharedPreferences sharedPref = mContext.getSharedPreferences(Constants.SharedPreferences.PAY_TYPE_SETTINGS, Context.MODE_PRIVATE);
+
+        for (PayLocation payLocation : payLocations) {
+            if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_APPLE_PAY, true)) {
+                if(stringIsTrueOrFalse(payLocation.getPayLocationUseApplePay())) {
+                    Log.d("filterrrrr", "filterByPayLocationMethod: sharedPref: " + sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_APPLE_PAY, true));
+                    Log.d("filterrrrr", "filterByPayLocationMethod: payLocation: " + stringIsTrueOrFalse(payLocation.getPayLocationUseApplePay()));
+
+                    filteredList.add(payLocation);
+                }
+
+            } else if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_GOOGLE_PAY, true)) {
+                if(stringIsTrueOrFalse(payLocation.getPayLocationUseGooglePay())) {
+                    filteredList.add(payLocation);
+                }
+
+            } else if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_SAMSUNG_PAY, true)) {
+                if(stringIsTrueOrFalse(payLocation.getPaylocationUseSamsungPay())) {
+                    filteredList.add(payLocation);
+                }
+
+            } else if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_LINE_PAY, true)) {
+                if(stringIsTrueOrFalse(payLocation.getPayLocationUseLinePay())) {
+                    filteredList.add(payLocation);
+                }
+
+            } else if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_JKO_PAY, true)) {
+                if(stringIsTrueOrFalse(payLocation.getPayLocationUseJkoPay())) {
+                    filteredList.add(payLocation);
+                }
             }
         }
 
@@ -191,5 +230,16 @@ public class FirestoreDataManager {
                 }
             }
         };
+    }
+
+    static boolean stringIsTrueOrFalse(String string) {
+        switch (string.toUpperCase()) {
+            case "Y":
+                return true;
+            case "N":
+                return false;
+            default:
+                return false;
+        }
     }
 }

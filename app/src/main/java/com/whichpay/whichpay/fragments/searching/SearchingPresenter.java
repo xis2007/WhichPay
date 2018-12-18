@@ -36,6 +36,11 @@ public class SearchingPresenter implements SearchingContract.Presenter {
     }
 
     @Override
+    public void clearList() {
+        mSearchingView.showNoResults();
+    }
+
+    @Override
     public void start() {
 
     }
