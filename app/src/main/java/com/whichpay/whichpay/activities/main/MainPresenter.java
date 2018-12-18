@@ -11,6 +11,7 @@ import com.whichpay.whichpay.fragments.searching.SearchingFragment;
 import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
 import com.whichpay.whichpay.fragments.settings.SettingsFragment;
 import com.whichpay.whichpay.fragments.settings.SettingsPresenter;
+import com.whichpay.whichpay.model.firestore.RemoteSettingsManager;
 
 public class MainPresenter implements MainContract.Presenter {
 
@@ -147,6 +148,16 @@ public class MainPresenter implements MainContract.Presenter {
     @Override
     public SearchingPresenter getSearchingPresenter() {
         return mSearchingPresenter;
+    }
+
+    @Override
+    public void checkIfAppUpdateIsRequired() {
+        new RemoteSettingsManager((MainActivity) mMainView, this).checkForAppUpdateRequirement();
+    }
+
+    @Override
+    public void promptUpdateRequirementMessage() {
+        mMainView.showUpdateRequirementDialog();
     }
 
     @Override

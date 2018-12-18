@@ -24,6 +24,12 @@ public class Constants {
     public class Firestore {
         public static final String COLLECTION_PAY_LOCATIONS = "PayLocations";
 
+        public static final String COLLECTION_SETTINGS = "settings";
+        public static final String DOCUMENT_UPDATE_APP = "updateApp";
+
+        public static final String KEY_REQUIRED = "required";
+        public static final String KEY_REQUIRED_verSION_CODE = "requiredVersionCode";
+
     }
 
 //    public class DefaultLocation {

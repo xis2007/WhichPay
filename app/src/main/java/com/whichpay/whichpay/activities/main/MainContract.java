@@ -57,6 +57,11 @@ public interface MainContract {
         // getters
         SearchingPresenter getSearchingPresenter();
 
+        // app update
+        void checkIfAppUpdateIsRequired();
+
+        void promptUpdateRequirementMessage();
+
     }
 
 

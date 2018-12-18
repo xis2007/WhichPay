@@ -7,6 +7,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.activities.base.BaseActivity;
 import com.whichpay.whichpay.contants.Constants;
+import com.whichpay.whichpay.popup.UpdateAppDialog;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -24,7 +25,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void showUpdateRequirementDialog() {
-
+        new UpdateAppDialog(this).show();
     }
 
     @Override
@@ -126,8 +127,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
 
     /**
+     * ***********************************************************************************
      * Called only to update data on Firestore
      * Users should not be able to use this method
+     * ***********************************************************************************
      */
     int beginningIndex = 9000;
     int stoppingIndex = 9000;
@@ -145,5 +148,16 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         if(beginningIndex < stoppingIndex) {
             updateFirestoreData();
         }
+    }
+
+    /**
+     * ***********************************************************************************
+     * Activity Lifecycle
+     * ***********************************************************************************
+     */
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mMainPresenter.checkIfAppUpdateIsRequired();
     }
 }
