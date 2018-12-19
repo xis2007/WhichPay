@@ -30,6 +30,9 @@ public class Constants {
         public static final String KEY_REQUIRED = "required";
         public static final String KEY_REQUIRED_verSION_CODE = "requiredVersionCode";
 
+        // PayLocationsProcessingTask
+        public static final int SEARCH_BY_USER_INPUT = 300;
+        public static final int SEARCH_BY_PAY_LOCATION_TYPE = 301;
     }
 
 //    public class DefaultLocation {

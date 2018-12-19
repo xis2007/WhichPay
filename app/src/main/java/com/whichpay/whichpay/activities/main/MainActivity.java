@@ -156,8 +156,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
      * ***********************************************************************************
      */
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
         mMainPresenter.checkIfAppUpdateIsRequired();
     }
 }
