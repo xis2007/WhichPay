@@ -219,10 +219,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION},
                         Constants.Permissions.PERMISSIONS_REQUEST_FINE_LOCATION);
             }
+
         } else {
             mMainPresenter.startLocationService();
-//            startService(new Intent(MainActivity.this, LocationService.class));
-//            listenToLocationChanges();
         }
     }
 
@@ -231,40 +230,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         switch (requestCode) {
             case Constants.Permissions.PERMISSIONS_REQUEST_FINE_LOCATION: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // TODO start the service
-//                    listenToLocationChanges();
-//                    startService(new Intent(MainActivity.this, LocationService.class));
                     mMainPresenter.startLocationService();
                 }
             }
         }
     }
-
-//    @SuppressLint("MissingPermission")
-//    private void listenToLocationChanges() {
-//        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-//
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, new LocationListener() {
-//            @Override
-//            public void onLocationChanged(Location location) {
-//                Log.d("GPSsss", "onLocationChanged: lat is: " + location.getLatitude());
-//                Log.d("GPSsss", "onLocationChanged: lng is: " + location.getLongitude());
-//            }
-//
-//            @Override
-//            public void onStatusChanged(String provider, int status, Bundle extras) {
-//
-//            }
-//
-//            @Override
-//            public void onProviderEnabled(String provider) {
-//
-//            }
-//
-//            @Override
-//            public void onProviderDisabled(String provider) {
-//
-//            }
-//        });
-//    }
 }

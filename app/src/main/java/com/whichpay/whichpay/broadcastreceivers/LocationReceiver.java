@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.util.Log;
 
 import com.whichpay.whichpay.activities.main.MainContract;
 import com.whichpay.whichpay.application.WhichPay;
@@ -27,7 +26,5 @@ public class LocationReceiver extends BroadcastReceiver {
         currentLocation.setLongitude(currentLng);
 
         mMainPresenter.updateCurrentLocation(currentLocation);
-
-        Log.d("Current Locationnnnn", "onReceive: received");
     }
 }
