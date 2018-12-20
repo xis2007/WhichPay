@@ -11,7 +11,7 @@
 //import android.location.Address;
 //import android.location.Geocoder;
 //import android.location.Location;
-//import android.location.LocationListener;
+//import android.location.PayLocationListener;
 //import android.location.LocationManager;
 //import android.os.AsyncTask;
 //import android.os.Bundle;
@@ -46,7 +46,7 @@
 //
 //
 //    static LocationManager mLocationManager;
-//    static LocationListener mLocationListener;
+//    static PayLocationListener mLocationListener;
 //    private static Geocoder mGeocoder;
 //
 //    public PL_Manager() {
@@ -323,7 +323,7 @@
 //        if (mLocationManager != null) {
 ////            if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 ////                Log.d(TAG, "setupLocationServices: created");
-//                mLocationListener = new LocationListener() {
+//                mLocationListener = new PayLocationListener() {
 //                    @Override
 //                    public void onLocationChanged(Location location) {
 //                        mLastLocation = location;

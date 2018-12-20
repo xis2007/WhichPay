@@ -12,7 +12,6 @@ import com.whichpay.whichpay.R;
 
 /**
  * Created by Justin on 11/25/2017.
- *
  */
 
 public class BaseActivity extends AppCompatActivity {
@@ -25,8 +24,8 @@ public class BaseActivity extends AppCompatActivity {
 
         setStatusBar();
 //        setToolBarHeight();
-
     }
+
 
     private void setStatusBar() {
         Window window = getWindow();
@@ -67,10 +66,6 @@ public class BaseActivity extends AppCompatActivity {
 //
 //        return result;
 //    }
-
-
-
-
 
 
     //    void activateToolbar(boolean enableHome) {

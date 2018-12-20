@@ -2,8 +2,13 @@ package com.whichpay.whichpay.activities.main;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.location.Location;
 
 import com.whichpay.whichpay.R;
+import com.whichpay.whichpay.application.WhichPay;
+import com.whichpay.whichpay.broadcastreceivers.LocationReceiver;
 import com.whichpay.whichpay.contants.Constants;
 import com.whichpay.whichpay.fragments.explore.ExploreFragment;
 import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
@@ -12,6 +17,7 @@ import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
 import com.whichpay.whichpay.fragments.settings.SettingsFragment;
 import com.whichpay.whichpay.fragments.settings.SettingsPresenter;
 import com.whichpay.whichpay.model.firestore.RemoteSettingsManager;
+import com.whichpay.whichpay.services.LocationService;
 
 public class MainPresenter implements MainContract.Presenter {
 
@@ -28,6 +34,9 @@ public class MainPresenter implements MainContract.Presenter {
     private ExplorePresenter mExplorePresenter;
     private SearchingPresenter mSearchingPresenter;
     private SettingsPresenter mSettingsPresenter;
+
+    // BroadcastReceiver
+    private LocationReceiver mLocationReceiver;
 
     public MainPresenter(MainContract.View mainView, FragmentManager fragmentManager) {
         mMainView = mainView;
@@ -127,12 +136,12 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void isLoading(String loadingHint) {
-
+        mMainView.showLoadingUi(loadingHint);
     }
 
     @Override
     public void isNotLoading() {
-
+        mMainView.hideLoadingUi();
     }
 
     @Override
@@ -161,6 +170,35 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
+    public void updateCurrentLocation(Location currentLocation) {
+        WhichPay.updateCurrentLocation(currentLocation);
+    }
+
+
+    @Override
+    public void registerReceivers() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Constants.ReceiverFilters.FILTER_LOCATION);
+        mLocationReceiver = new LocationReceiver(this);
+        ((MainActivity) mMainView).registerReceiver(mLocationReceiver, intentFilter);
+    }
+
+    @Override
+    public void unregisterReceivers() {
+        ((MainActivity) mMainView).unregisterReceiver(mLocationReceiver);
+    }
+
+    @Override
+    public void startLocationService() {
+        ((MainActivity) mMainView).startService(new Intent((MainActivity) mMainView, LocationService.class));
+    }
+
+    @Override
+    public void stopLocationService() {
+        ((MainActivity) mMainView).stopService(new Intent((MainActivity) mMainView, LocationService.class));
+    }
+
+    @Override
     public void start() {
         // initialize searching fragment at start up to avoid null pointer exception
         initSearchingPage();
@@ -179,7 +217,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     /**
      * ***********************************************************************************
-     * Helper Methods
+     * Helper/Other Methods
      * ***********************************************************************************
      */
     private void initSearchingPage() {

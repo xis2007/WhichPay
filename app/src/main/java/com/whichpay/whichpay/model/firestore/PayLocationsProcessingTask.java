@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -51,6 +50,7 @@ public class PayLocationsProcessingTask extends AsyncTask<QuerySnapshot, Void, A
                 break;
 
             default:
+                mPresenter.informToFinishLoading();
                 break;
         }
 
@@ -61,6 +61,7 @@ public class PayLocationsProcessingTask extends AsyncTask<QuerySnapshot, Void, A
     protected void onPostExecute(ArrayList<PayLocation> payLocations) {
         super.onPostExecute(payLocations);
         mPresenter.informToShowSearchResults(payLocations);
+        mPresenter.informToFinishLoading();
     }
 
     /**
@@ -127,9 +128,6 @@ public class PayLocationsProcessingTask extends AsyncTask<QuerySnapshot, Void, A
         for (PayLocation payLocation : payLocations) {
             if(sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_APPLE_PAY, true)) {
                 if(stringIsTrueOrFalse(payLocation.getPayLocationUseApplePay())) {
-                    Log.d("filterrrrr", "filterByPayLocationMethod: sharedPref: " + sharedPref.getBoolean(Constants.SharedPreferences.PAY_TYPE_APPLE_PAY, true));
-                    Log.d("filterrrrr", "filterByPayLocationMethod: payLocation: " + stringIsTrueOrFalse(payLocation.getPayLocationUseApplePay()));
-
                     filteredList.add(payLocation);
                 }
 
@@ -152,6 +150,10 @@ public class PayLocationsProcessingTask extends AsyncTask<QuerySnapshot, Void, A
                 if(stringIsTrueOrFalse(payLocation.getPayLocationUseJkoPay())) {
                     filteredList.add(payLocation);
                 }
+
+            } else {
+                // it means all pay methods are not selected, then the should show all results
+                filteredList.add(payLocation);
             }
         }
 

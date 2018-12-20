@@ -150,7 +150,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_apple_pay_switch"
                 app:layout_constraintTop_toTopOf="@+id/text_apple_pay_switch"
-                app:sb_show_indicator="false"/>
+                app:sb_show_indicator="false"
+                app:sb_checked_color="@color/colorPrimaryLight"/>
 
             <com.suke.widget.SwitchButton
                 android:id="@+id/switch_google_pay"
@@ -163,7 +164,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_google_pay_switch"
                 app:layout_constraintTop_toTopOf="@+id/text_google_pay_switch"
-                app:sb_show_indicator="false"/>
+                app:sb_show_indicator="false"
+                app:sb_checked_color="@color/colorPrimaryLight"/>
 
             <com.suke.widget.SwitchButton
                 android:id="@+id/switch_samsung_pay"
@@ -176,7 +178,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_samsung_pay_switch"
                 app:layout_constraintTop_toTopOf="@+id/text_samsung_pay_switch"
-                app:sb_show_indicator="false"/>
+                app:sb_show_indicator="false"
+                app:sb_checked_color="@color/colorPrimaryLight"/>
 
             <com.suke.widget.SwitchButton
                 android:id="@+id/switch_line_pay"
@@ -189,7 +192,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_line_pay_switch"
                 app:layout_constraintTop_toTopOf="@+id/text_line_pay_switch"
-                app:sb_show_indicator="false"/>
+                app:sb_show_indicator="false"
+                app:sb_checked_color="@color/colorPrimaryLight"/>
 
             <com.suke.widget.SwitchButton
                 android:id="@+id/switch_jko_pay"
@@ -203,7 +207,8 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/text_jko_pay_switch"
                 app:layout_constraintTop_toTopOf="@+id/text_jko_pay_switch"
-                app:sb_show_indicator="false"/>
+                app:sb_show_indicator="false"
+                app:sb_checked_color="@color/colorPrimaryLight"/>
 
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>

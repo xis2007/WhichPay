@@ -23,5 +23,7 @@ public interface SearchingContract {
         void searchByPayLocationType(String locationType);
 
         void clearList();
+
+        void informToFinishLoading();
     }
 }

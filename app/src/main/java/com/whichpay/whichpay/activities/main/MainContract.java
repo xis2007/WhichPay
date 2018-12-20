@@ -1,5 +1,7 @@
 package com.whichpay.whichpay.activities.main;
 
+import android.location.Location;
+
 import com.whichpay.whichpay.activities.base.BasePresenter;
 import com.whichpay.whichpay.activities.base.BaseView;
 import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
@@ -62,6 +64,16 @@ public interface MainContract {
 
         void promptUpdateRequirementMessage();
 
+        // location related
+        void updateCurrentLocation(Location location);
+
+        void registerReceivers();
+
+        void unregisterReceivers();
+
+        void startLocationService();
+
+        void stopLocationService();
     }
 
 

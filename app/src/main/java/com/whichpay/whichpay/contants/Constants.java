@@ -88,4 +88,17 @@ public class Constants {
         public static final int TYPE_SEARCH_NAME_OR_ADDRESS = 600;
         public static final int TYPE_SEARCH_LOCATION_TYPE = 601;
     }
+
+    public class Permissions {
+        public static final int PERMISSIONS_REQUEST_FINE_LOCATION = 700;
+    }
+
+    public class ReceiverFilters {
+        public static final String FILTER_LOCATION = "com.whichpay.whichpay.location";
+    }
+
+    public class LocationIntentExtras {
+        public static final String LOCATION_LOC_LAT = "CURRENT_LOC_LAT";
+        public static final String LOCATION_LOC_LNG = "CURRENT_LOC_LNG";
+    }
 }

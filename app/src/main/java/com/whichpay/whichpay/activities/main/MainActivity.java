@@ -1,6 +1,15 @@
 package com.whichpay.whichpay.activities.main;
 
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.TextView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
@@ -15,6 +24,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private MainContract.Presenter mMainPresenter;
 
     private AHBottomNavigation mBottomNavigation;
+
+    private ConstraintLayout mLoadingLayout;
+    private TextView mTextHintLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +62,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void showLoadingUi(String loadingHint) {
-
+        mLoadingLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoadingUi() {
-
+        mLoadingLayout.setVisibility(View.GONE);
     }
 
     @Override
@@ -82,10 +94,19 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private void init() {
         initViews();
         initPresenter();
+        mMainPresenter.registerReceivers();
+        checkSelfPermissions();
     }
 
     private void initViews() {
+        initLoadingView();
         initBottomNavigation();
+    }
+
+    private void initLoadingView() {
+        mLoadingLayout = findViewById(R.id.layout_loading);
+        mTextHintLoading = findViewById(R.id.text_hint_loading);
+        mTextHintLoading.setText("");
     }
 
     private void initBottomNavigation() {
@@ -160,4 +181,90 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         super.onResume();
         mMainPresenter.checkIfAppUpdateIsRequired();
     }
+
+    @Override
+    protected void onDestroy() {
+//        stopService(new Intent(MainActivity.this, LocationService.class));
+        mMainPresenter.stopLocationService();
+        mMainPresenter.unregisterReceivers();
+        super.onDestroy();
+    }
+
+    /**
+     * ***********************************************************************************
+     * Permission Checks
+     * ***********************************************************************************
+     */
+    private void checkSelfPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                new AlertDialog.Builder(this)
+                        .setMessage("This App requires location data to provide the best services")
+                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                        Constants.Permissions.PERMISSIONS_REQUEST_FINE_LOCATION);
+                            }
+                        })
+//                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        })
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION},
+                        Constants.Permissions.PERMISSIONS_REQUEST_FINE_LOCATION);
+            }
+        } else {
+            mMainPresenter.startLocationService();
+//            startService(new Intent(MainActivity.this, LocationService.class));
+//            listenToLocationChanges();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case Constants.Permissions.PERMISSIONS_REQUEST_FINE_LOCATION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // TODO start the service
+//                    listenToLocationChanges();
+//                    startService(new Intent(MainActivity.this, LocationService.class));
+                    mMainPresenter.startLocationService();
+                }
+            }
+        }
+    }
+
+//    @SuppressLint("MissingPermission")
+//    private void listenToLocationChanges() {
+//        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+//
+//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, new LocationListener() {
+//            @Override
+//            public void onLocationChanged(Location location) {
+//                Log.d("GPSsss", "onLocationChanged: lat is: " + location.getLatitude());
+//                Log.d("GPSsss", "onLocationChanged: lng is: " + location.getLongitude());
+//            }
+//
+//            @Override
+//            public void onStatusChanged(String provider, int status, Bundle extras) {
+//
+//            }
+//
+//            @Override
+//            public void onProviderEnabled(String provider) {
+//
+//            }
+//
+//            @Override
+//            public void onProviderDisabled(String provider) {
+//
+//            }
+//        });
+//    }
 }

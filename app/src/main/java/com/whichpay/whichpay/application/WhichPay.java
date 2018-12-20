@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.util.Log;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.whichpay.whichpay.R;
@@ -78,11 +79,11 @@ public class WhichPay extends Application {
     }
 
     public static Location getCurrentLocation() {
-        // TODO to be changed
-        return mDefaultLocation;
+        return mCurrentLocation == null ? mDefaultLocation : mCurrentLocation;
     }
 
-
-
-
+    public static void updateCurrentLocation(Location currentLocation) {
+        WhichPay.mCurrentLocation = currentLocation;
+        Log.d("Current Locationnnnn", "updateCurrentLocation: currentLocation is: " + mCurrentLocation);
+    }
 }
