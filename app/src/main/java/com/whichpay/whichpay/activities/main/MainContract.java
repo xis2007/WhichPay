@@ -17,7 +17,7 @@ public interface MainContract {
         void showSearchingPageUi(int searchType, String payLocationsType);
 
         // nearby results page
-        void showNearbyResultsPageUi();
+        void showMapsPageUi();
 
         // settings
         void showSettingsPageUi();
@@ -41,7 +41,7 @@ public interface MainContract {
         void transToSearchingPage(int searchType, String payLocationsType);
 
         // nearby results page
-        void transToNearbyResultsPage();
+        void transToMapsPage(int positionInList);
 
         // settings
         void transToSettingsPage();

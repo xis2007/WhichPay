@@ -48,6 +48,11 @@ public class SearchingPresenter implements SearchingContract.Presenter {
     }
 
     @Override
+    public void informToShowInMaps(int positionInList) {
+        mMainPresenter.transToMapsPage(positionInList);
+    }
+
+    @Override
     public void start() {
 
     }

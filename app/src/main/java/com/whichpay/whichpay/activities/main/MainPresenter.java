@@ -12,6 +12,8 @@ import com.whichpay.whichpay.broadcastreceivers.LocationReceiver;
 import com.whichpay.whichpay.contants.Constants;
 import com.whichpay.whichpay.fragments.explore.ExploreFragment;
 import com.whichpay.whichpay.fragments.explore.ExplorePresenter;
+import com.whichpay.whichpay.fragments.maps.MapsFragment;
+import com.whichpay.whichpay.fragments.maps.MapsPresenter;
 import com.whichpay.whichpay.fragments.searching.SearchingFragment;
 import com.whichpay.whichpay.fragments.searching.SearchingPresenter;
 import com.whichpay.whichpay.fragments.settings.SettingsFragment;
@@ -29,11 +31,13 @@ public class MainPresenter implements MainContract.Presenter {
     private ExploreFragment mExploreFragment;
     private SearchingFragment mSearchingFragment;
     private SettingsFragment mSettingsFragment;
+    private MapsFragment mMapsFragment;
 
     // presenters
     private ExplorePresenter mExplorePresenter;
     private SearchingPresenter mSearchingPresenter;
     private SettingsPresenter mSettingsPresenter;
+    private MapsPresenter mMapsPresenter;
 
     // BroadcastReceiver
     private LocationReceiver mLocationReceiver;
@@ -50,6 +54,7 @@ public class MainPresenter implements MainContract.Presenter {
         if (mExploreFragment == null) mExploreFragment = ExploreFragment.newInstance();
 
         if (mSearchingFragment != null) transaction.hide(mSearchingFragment);
+        if (mMapsFragment != null) transaction.hide(mMapsFragment);
         if (mSettingsFragment != null) transaction.hide(mSettingsFragment);
 
         if (!mExploreFragment.isAdded()) {
@@ -76,6 +81,7 @@ public class MainPresenter implements MainContract.Presenter {
         if (mSearchingFragment == null) mSearchingFragment = SearchingFragment.newInstance();
 
         if (mExploreFragment != null) transaction.hide(mExploreFragment);
+        if (mMapsFragment != null) transaction.hide(mMapsFragment);
         if (mSettingsFragment != null) transaction.hide(mSettingsFragment);
 
         if (!mSearchingFragment.isAdded()) {
@@ -104,8 +110,32 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void transToNearbyResultsPage() {
+    public void transToMapsPage(int positionInList) {
+        WhichPay.setPositionOfPayLocationToShow(positionInList);
 
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+
+        if (mMapsFragment == null) mMapsFragment = MapsFragment.newInstance();
+
+        if (mExploreFragment != null) transaction.hide(mExploreFragment);
+        if (mSearchingFragment != null) transaction.hide(mSearchingFragment);
+        if (mSettingsFragment != null) transaction.hide(mSettingsFragment);
+
+        if (!mMapsFragment.isAdded()) {
+            transaction.add(R.id.container_main, mMapsFragment, Constants.FragmentFlags.FLAG_MAPS);
+        } else {
+            transaction.show(mMapsFragment);
+        }
+
+        if (mMapsPresenter == null) {
+            mMapsPresenter = new MapsPresenter(mMapsFragment);
+            mMapsPresenter.setMainView(mMainView);
+            mMapsPresenter.setMainPresenter(this);
+        }
+
+        transaction.commit();
+
+        mMainView.showMapsPageUi();
     }
 
     @Override
@@ -116,6 +146,7 @@ public class MainPresenter implements MainContract.Presenter {
 
         if (mExploreFragment != null) transaction.hide(mExploreFragment);
         if (mSearchingFragment != null) transaction.hide(mSearchingFragment);
+        if (mMapsFragment != null) transaction.hide(mMapsFragment);
 
         if (!mSettingsFragment.isAdded()) {
             transaction.add(R.id.container_main, mSettingsFragment, Constants.FragmentFlags.FLAG_SETTINGS);

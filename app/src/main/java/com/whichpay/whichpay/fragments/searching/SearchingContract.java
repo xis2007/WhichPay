@@ -25,5 +25,7 @@ public interface SearchingContract {
         void clearList();
 
         void informToFinishLoading();
+
+        void informToShowInMaps(int positionInList);
     }
 }

@@ -19,8 +19,10 @@ public class WhichPay extends Application {
 
     private static Location mDefaultLocation;
     private static Location mCurrentLocation;
+    private static int mPositionOfPayLocationToShow = -1;
 
     @Override
+
     public void onCreate() {
         super.onCreate();
         mContext = this;
@@ -85,5 +87,13 @@ public class WhichPay extends Application {
     public static void updateCurrentLocation(Location currentLocation) {
         WhichPay.mCurrentLocation = currentLocation;
         Log.d("Current Locationnnnn", "updateCurrentLocation: currentLocation is: " + mCurrentLocation);
+    }
+
+    public static int getPositionOfPayLocationToShow() {
+        return mPositionOfPayLocationToShow;
+    }
+
+    public static void setPositionOfPayLocationToShow(int positionOfPayLocationToShow) {
+        WhichPay.mPositionOfPayLocationToShow = positionOfPayLocationToShow;
     }
 }

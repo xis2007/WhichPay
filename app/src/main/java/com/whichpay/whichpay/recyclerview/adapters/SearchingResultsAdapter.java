@@ -1,5 +1,6 @@
 package com.whichpay.whichpay.recyclerview.adapters;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class SearchingResultsAdapter extends RecyclerView.Adapter {
     private Context mContext;
+
     private SearchingContract.View mSearchingView;
     private SearchingContract.Presenter mSearchingPresenter;
 
@@ -40,8 +42,15 @@ public class SearchingResultsAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         PayLocation currentPayLocation = mPayLocationsList.get(position);
+
+        ((PayLocationHolder) holder).getContainer().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchingPresenter.informToShowInMaps(position);
+            }
+        });
 
         ((PayLocationHolder) holder).getLocationName().setText(currentPayLocation.getPayLocationName());
         ((PayLocationHolder) holder).getLocationBranch().setText(currentPayLocation.getPaylocationBranch());
@@ -143,6 +152,8 @@ public class SearchingResultsAdapter extends RecyclerView.Adapter {
     }
 
     public class PayLocationHolder extends RecyclerView.ViewHolder {
+        ConstraintLayout container;
+
         TextView locationName;
         TextView locationBranch;
         TextView locationDistanceFromUser;
@@ -157,6 +168,8 @@ public class SearchingResultsAdapter extends RecyclerView.Adapter {
         PayLocationHolder(View itemView) {
             super(itemView);
 
+            container = itemView.findViewById(R.id.item_container);
+
             locationName = itemView.findViewById(R.id.item_name);
             locationBranch = itemView.findViewById(R.id.item_branch);
             locationDistanceFromUser = itemView.findViewById(R.id.item_distance);
@@ -167,6 +180,10 @@ public class SearchingResultsAdapter extends RecyclerView.Adapter {
             locationUseSamsungPay = itemView.findViewById(R.id.image_samsungpay);
             locationUseLinePay = itemView.findViewById(R.id.image_linepay);
             locationUseJkoPay = itemView.findViewById(R.id.image_jkopay);
+        }
+
+        public ConstraintLayout getContainer() {
+            return container;
         }
 
         public TextView getLocationName() {

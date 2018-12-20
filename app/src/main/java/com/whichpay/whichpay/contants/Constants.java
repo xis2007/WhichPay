@@ -11,6 +11,7 @@ public class Constants {
         public static final String FLAG_EXPLORE = "EXPLORE";
         public static final String FLAG_SEARCHING = "SEARCHING";
         public static final String FLAG_SETTINGS = "SETTINGS";
+        public static final String FLAG_MAPS = "MAPS";
     }
 
     public class ItemViewType {
