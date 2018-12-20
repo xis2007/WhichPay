@@ -142,7 +142,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     private void initPresenter() {
-        mMainPresenter = new MainPresenter(this, getFragmentManager());
+        mMainPresenter = new MainPresenter(this, getSupportFragmentManager());
         mMainPresenter.start();
     }
 

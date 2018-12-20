@@ -1,10 +1,10 @@
 package com.whichpay.whichpay.activities.main;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.application.WhichPay;
