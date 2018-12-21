@@ -1,8 +1,6 @@
 # WhichPay
-
 An App that provides users informaon about the types of payment options merchants provide in Taiwan.
 Users can easily find out where they can use mobile payment and what type of mobile payment options among the most popular ones, Apple Pay, Google Pay, Samsung Pay, Line Pay, and Jko Pay, they can use easily and quickly by searching in this App.
-
 <br /><br />[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200">](https://play.google.com/store/apps/details?id=com.justinlee.whichpay)
 
 # Features
