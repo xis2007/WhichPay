@@ -1,44 +1,41 @@
 # WhichPay
 
-A handy drawing and guessing party game for everyone.
-Players can easily play with their friends quickly on the phone, where player prgress will be timed and stored on the cloud automatically.
-<br /><br />[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200">](https://play.google.com/store/apps/details?id=com.justinlee.drawmatic)
+An App that provides users informaon about the types of payment options merchants provide in Taiwan.
+Users can easily find out where they can use mobile payment and what type of mobile payment options among the most popular ones, Apple Pay, Google Pay, Samsung Pay, Line Pay, and Jko Pay, they can use easily and quickly by searching in this App.
 
+<br /><br />[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200">](https://play.google.com/store/apps/details?id=com.justinlee.whichpay)
 
 # Features
 
-  * Authentication
-    * Firebase Authencaon that allows users to login anonymously to play games quickly 
+  * Location Services
+    * When user launches the App, the App will get user fine location by using GPS or Network
+    * Users will be asked for their permissions during runtime to access their location information
+    * If location services is not available, default locations will be used
+    
+  * Explore
+    * At the Explore Page, users are provided with the latest information related to mobile payments with viewpager
+    * Users can also search for nearby merchants by merchant types by pressing the shorcuts provided in the Explre Page, the results will be shown in recyclerview
+    
+  * Searching
+    * Users can use the searching page to search for merchants and the result will be shown in recyclerview
+    * Queries will be matched against merchant name or address
+    * Results will be ordered in distance from merchant to user's current location in ascending order
+    
+  * Settings
+    * User can set their default locations in the settings page in case user location is not available
+    * User can also set the type of payment options they want to look for. For example, users may only want to look for merchants that allow Line Pay, after closing all other options, user search results will only have merchants they allows Line Pay.
+    * User settings are stored with SharedPreferences
 
-  * Main Menu
-    * Gaming main page for players to either create a new room for others to join or join an existing room created be other players
-    * Instructions Page with 2 layers of recyclerview that allows beginners to learn how to play the game
-    * Settings Page for App information and player renaming
-    
-  * Joining Games
-    * Creator of a game can set up rules for the game i.e. the time allowed for each step and maximum players allowed
-    * Room and player information are updated to Firebase Firestore in realtime
-    * Partial search is allowed when searching for rooms to join
-    * Searched rooms are shown in recyclerview with linear layout
-    * After joining rooms, players in the room is shown in recyclerview with grid layout 
-    
-  * In games
-    * Each step in the game will be timed with coundown timer to keep everyone on the same page
-    * After each step, data (guessing and drawing) will be uploaded to Firebase Firestore or Storage, and each player will tell the server that he/she finishes the step
-    * The next step will begin only when everyone finishes, and the correct data will be retrieved from Firebase asyncronouly
-    * If anyone leaves the game by pressing the "Leave" button, all players will leave the game
-    * If anyone leaves the game without proper procedures, all players will leave the game in 15 seconds after finishing a step
-    * Player drawings are captured and drawn onto a new Bitmap with Canvas (translated to ByteArrayOutputStream when necessary)
-    
-  * After Games
-    * Each player's topic and related guessing and drawings will be retrieved and shown with viewpager, in the order they are created
-    * All rooms, players, and gaming data will be deleted after game finishes
+  * Google Maps
+    * User can view search results in Google Maps, with their searched merchants shown in markers on the map
+    * Clicking on each marker will show detail information about each merchant
   
 # Screenshot
 
-<img src="https://lh3.googleusercontent.com/RiEX3w4yDrY_LXWX6AQESRAsVYblIMyjbVMpaBoicdAAKQMTeXqYg11KGJBp8-uUfGo=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/wqTNySJuRX6SuIKmzc07lIjG6BFTJXDtu6VWFaZaD93ddLcx6HdLl6HreYd5XEW6qg=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/DyDdyxPSy5qGAlazgyffzpx-v2gwNzd30q-uvZp1BhtjqdmxLApzAG3dXFvvovbVnWU=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/e_xNq9m-eh1qeNp64noluAykDMgWZV_tW7JPMWkNMxZy6c5W-SV2y6HrKsWBxFpfXw=w1440-h620-rw" width="210"> 
+<img src="https://lh3.googleusercontent.com/shBiXk4icxuMAphOXCya3ZjC8c_XY60eQoygC2C-LiQURWmbB-5D0NGYbX2OgPZiZUM=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/4khaHdv_ZYRj8I0YsAfU2z3HMEazGLl1eyjNe2FD4i4DlXXrH2AYmipCCXEtmmyyvGN0=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/7OaQ0poOEFF62T6TrcM3cH9kZfR-lbHEmFiF996JeQP0ljWChhErQqCAVGudmujrCm0=w1440-h620-rw" width="210"> <img src="https://lh3.googleusercontent.com/fsNR8dlrBoIYQu5fqAdSXpqMAda15qOBVnZJtQXd1Bw6LTyEFCSQLwBBNmH-NSSLvw=w1440-h620-rw" width="210"> 
 
 # Implemented
+  (Some of the implementations will be available after refactoring of the App)
   
   * Design Patterns 
     * Object-Oreinted Programming
@@ -46,10 +43,10 @@ Players can easily play with their friends quickly on the phone, where player pr
     * Dependency Injection
     
   * Core Functions
-    * Firebase Authentication
-    * Game syncronization
+    * Access User fine location with GPS or Network, using Service and BroadcastReceiver
     * Interfaces and Callbacks
-    * Capturing images of a view
+    * Runtime Permissions for location services
+    * Google Maps
     
   * User Interface
     * Activity
@@ -60,28 +57,19 @@ Players can easily play with their friends quickly on the phone, where player pr
     * Dialog
     
   * Database
-    * Firebase Firestore to store game information online
-    * Firebase Storage to store images online
-    
-  * Analysis
-    * Crashlytics 	
-    
-  * Unit Test
-    * JUnit
-    * Mockito
-    * Espresso
+    * SharedPreferences
+    * Firebase Firestore to store merchant and payment information
 
 # Requirement
 * Android Studio 3.0+
 * Android SDK 21+
-* Gradle 3.2.1+
+* Gradle 3.1.3+
 
 # Version
-* 1.1.7 - 2018/11/17
+* 1.2.15 - 2018/7/8
     Last Update
 
   
 
 # Contact
-
 justinlee.archer@gmail.com 
