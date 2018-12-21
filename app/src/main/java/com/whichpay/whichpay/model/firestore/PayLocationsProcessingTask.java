@@ -60,7 +60,7 @@ public class PayLocationsProcessingTask extends AsyncTask<QuerySnapshot, Void, A
     @Override
     protected void onPostExecute(ArrayList<PayLocation> payLocations) {
         super.onPostExecute(payLocations);
-        mPresenter.informToShowSearchResults(payLocations);
+        mPresenter.informNewSearchResults(payLocations);
         mPresenter.informToFinishLoading();
     }
 

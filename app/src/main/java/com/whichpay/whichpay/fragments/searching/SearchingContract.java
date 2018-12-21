@@ -16,7 +16,7 @@ public interface SearchingContract {
     }
 
     interface Presenter extends BasePresenter {
-        void informToShowSearchResults(ArrayList<PayLocation> payLocations);
+        void informNewSearchResults(ArrayList<PayLocation> payLocations);
 
         void searchByPayLocationNameOrAddress(String query);
 

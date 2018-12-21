@@ -10,6 +10,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.whichpay.whichpay.R;
 import com.whichpay.whichpay.contants.Constants;
 import com.whichpay.whichpay.model.database.PayLocationsDatabase;
+import com.whichpay.whichpay.objects.PayLocation;
+
+import java.util.ArrayList;
 
 public class WhichPay extends Application {
 
@@ -19,6 +22,8 @@ public class WhichPay extends Application {
 
     private static Location mDefaultLocation;
     private static Location mCurrentLocation;
+
+    private static ArrayList<PayLocation> mSearchedAndFilteredPayLocationsList;
     private static int mPositionOfPayLocationToShow = -1;
 
     @Override
@@ -87,6 +92,20 @@ public class WhichPay extends Application {
     public static void updateCurrentLocation(Location currentLocation) {
         WhichPay.mCurrentLocation = currentLocation;
         Log.d("Current Locationnnnn", "updateCurrentLocation: currentLocation is: " + mCurrentLocation);
+    }
+
+
+    /**
+     * ********************************************************************************************
+     * For Search Results
+     * ********************************************************************************************
+     */
+    public static ArrayList<PayLocation> getSearchedAndFilteredPayLocationsList() {
+        return mSearchedAndFilteredPayLocationsList;
+    }
+
+    public static void setSearchedAndFilteredPayLocationsList(ArrayList<PayLocation> searchedAndFilteredPayLocationsList) {
+        WhichPay.mSearchedAndFilteredPayLocationsList = searchedAndFilteredPayLocationsList;
     }
 
     public static int getPositionOfPayLocationToShow() {

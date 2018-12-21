@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.whichpay.whichpay.activities.main.MainContract;
 import com.whichpay.whichpay.activities.main.MainPresenter;
+import com.whichpay.whichpay.application.WhichPay;
 import com.whichpay.whichpay.model.firestore.FirestoreDataManager;
 import com.whichpay.whichpay.objects.PayLocation;
 
@@ -21,8 +22,9 @@ public class SearchingPresenter implements SearchingContract.Presenter {
     }
 
     @Override
-    public void informToShowSearchResults(ArrayList<PayLocation> payLocations) {
+    public void informNewSearchResults(ArrayList<PayLocation> payLocations) {
         mSearchingView.showSearchResults(payLocations);
+        WhichPay.setSearchedAndFilteredPayLocationsList(payLocations);
     }
 
     @Override

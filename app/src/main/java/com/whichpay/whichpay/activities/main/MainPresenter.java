@@ -133,6 +133,10 @@ public class MainPresenter implements MainContract.Presenter {
             mMapsPresenter.setMainPresenter(this);
         }
 
+        // as maps fragment already exists, do not wait for map to get ready, show the locations right away
+        if(mMapsFragment != null && mMapsFragment.isMapReady()) mMapsFragment.moveToSelectedLocationFromSearchedList();
+
+
         transaction.commit();
 
         mMainView.showMapsPageUi();

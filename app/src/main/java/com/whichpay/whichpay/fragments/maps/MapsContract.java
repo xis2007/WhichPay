@@ -5,7 +5,7 @@ import com.whichpay.whichpay.activities.base.BaseView;
 
 public interface MapsContract {
     interface View extends BaseView<Presenter> {
-        void showUpdateRequirementDialog();
+        void moveToSelectedLocationFromSearchedList();
     }
 
     interface Presenter extends BasePresenter {
