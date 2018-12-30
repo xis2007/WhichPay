@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.whichpay.whichpay.R;
@@ -72,6 +73,11 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                             .load(R.drawable.icon_cafe)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
 
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_dining)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
+
+                    // set onclick listeners
                     ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -79,22 +85,27 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                         }
                     });
 
-                    Glide.with(mExploreFragment.getActivity())
-                            .load(R.drawable.icon_dining)
-                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
-
                     ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.DINING);
                         }
                     });
+
+                    // set TextViews
+                    ((ExploreNearbyHolder) holder).getTextNearbyLeft().setText(Constants.PayLocationsType.CAFES_DRINKS);
+                    ((ExploreNearbyHolder) holder).getTextNearbyRight().setText(Constants.PayLocationsType.DINING);
+
                     break;
 
                 case 3:
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_supermarket)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
+
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_shopping)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
 
                     ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -103,22 +114,26 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                         }
                     });
 
-                    Glide.with(mExploreFragment.getActivity())
-                            .load(R.drawable.icon_shopping)
-                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
-
                     ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.SHOPPING);
                         }
                     });
+
+                    ((ExploreNearbyHolder) holder).getTextNearbyLeft().setText(Constants.PayLocationsType.SUPERMARKETS);
+                    ((ExploreNearbyHolder) holder).getTextNearbyRight().setText(Constants.PayLocationsType.SHOPPING);
+
                     break;
 
                 case 4:
                     Glide.with(mExploreFragment.getActivity())
                             .load(R.drawable.icon_entertain)
                             .into(((ExploreNearbyHolder) holder).getImageViewLeft());
+
+                    Glide.with(mExploreFragment.getActivity())
+                            .load(R.drawable.icon_beauty)
+                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
 
                     ((ExploreNearbyHolder) holder).getImageViewLeft().setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -127,16 +142,16 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
                         }
                     });
 
-                    Glide.with(mExploreFragment.getActivity())
-                            .load(R.drawable.icon_beauty)
-                            .into(((ExploreNearbyHolder) holder).getImageViewRight());
-
                     ((ExploreNearbyHolder) holder).getImageViewRight().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mExplorePresenter.informToShowNearbyResults(Constants.SearchType.TYPE_SEARCH_LOCATION_TYPE, Constants.PayLocationsType.BEAUTIES);
                         }
                     });
+
+                    ((ExploreNearbyHolder) holder).getTextNearbyLeft().setText(Constants.PayLocationsType.TRAVEL_ENTERTAIN);
+                    ((ExploreNearbyHolder) holder).getTextNearbyRight().setText(Constants.PayLocationsType.BEAUTIES);
+
                     break;
 
                 default:
@@ -188,11 +203,17 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
         ImageView mImageViewLeft;
         ImageView mImageViewRight;
 
+        TextView mTextNearbyLeft;
+        TextView mTextNearbyRight;
+
         ExploreNearbyHolder(View itemView) {
             super(itemView);
 
             mImageViewLeft = itemView.findViewById(R.id.image_left);
             mImageViewRight = itemView.findViewById(R.id.image_right);
+
+            mTextNearbyLeft = itemView.findViewById(R.id.text_nearby_left);
+            mTextNearbyRight = itemView.findViewById(R.id.text_nearby_right);
         }
 
         public ImageView getImageViewLeft() {
@@ -201,6 +222,14 @@ public class ExplorePageAdapter extends RecyclerView.Adapter {
 
         public ImageView getImageViewRight() {
             return mImageViewRight;
+        }
+
+        public TextView getTextNearbyLeft() {
+            return mTextNearbyLeft;
+        }
+
+        public TextView getTextNearbyRight() {
+            return mTextNearbyRight;
         }
     }
 }
